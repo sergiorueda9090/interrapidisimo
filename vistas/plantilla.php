@@ -118,8 +118,8 @@ CUERPO DOCUMENTO
 <body class="hold-transition skin-green sidebar-collapse sidebar-mini login-page">
 
   <?php
-  $user = "root";
-  $password = "password";
+  $user = "";
+  $password = "";
   $database = "interrapidisiomo";
   $table = "usuarios";
   
