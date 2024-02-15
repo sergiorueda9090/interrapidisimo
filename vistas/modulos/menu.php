@@ -17,12 +17,10 @@
 
 			<li>
 
-				<a href="usuarios">
-
-					<i class="fa fa-user"></i>
-					<span>Usuarios</span>
-
-				</a>
+			<a href="usuarios" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+    <img src="vistas/img/iconos/user-interface.png" alt="" style="width: 100%; height: auto;">
+    <span>Usuarios</span>
+</a>
 
 			</li>
 

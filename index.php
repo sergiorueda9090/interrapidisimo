@@ -25,7 +25,7 @@ require_once "modelos/domicilio.modelo.php";
 require_once "modelos/tarjetas.modelo.php";
 require_once "modelos/gastos.modelo.php";
 
-require_once "extensiones/PHPMailer/PHPMailerAutoload.php";
+//require_once "extensiones/PHPMailer/PHPMailerAutoload.php";
 require_once "extensiones/vendor/autoload.php";
 
 $plantilla = new ControladorPlantilla();

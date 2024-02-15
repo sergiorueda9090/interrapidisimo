@@ -24,7 +24,7 @@
 
       <div class="box-header with-border">
 
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+        <button class="btn btn-new-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
 
           Agregar usuario
 
@@ -43,8 +43,6 @@
            <th style="width:10px">#</th>
            <th>Nombre</th>
            <th>Usuario</th>
-           <th>Placa</th>
-           <th>Telefono</th>
            <th>Foto</th>
            <th>Perfil</th>
            <th>Estado</th>
@@ -69,10 +67,7 @@
           echo ' <tr>
                   <td>'.($key+1).'</td>
                   <td>'.$value["nombre"].'</td>
-                  <td>'.$value["usuario"].'</td>
-                  <td>'.$value["placa"].'</td>
-                  <td>'.$value["telefonoUsuario"].'</td>';
-
+                  <td>'.$value["usuario"].'</td>';
                   if($value["foto"] != ""){
 
                     echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
@@ -142,7 +137,7 @@ MODAL AGREGAR USUARIO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#00A65A; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -276,7 +271,7 @@ MODAL AGREGAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-success">Guardar usuario</button>
+          <button type="submit" class="btn btn-new-primary">Guardar usuario</button>
 
         </div>
 
@@ -311,7 +306,7 @@ MODAL EDITAR USUARIO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#00A65A; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -421,7 +416,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-success">Modificar usuario</button>
+          <button type="submit" class="btn btn-new-primary">Modificar usuario</button>
 
         </div>
 

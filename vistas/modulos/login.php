@@ -6,8 +6,8 @@
   <div class="login-box-body">
 
     <div class="login-logo">
-
-      <img src="vistas/img/plantilla/logoCrono.jpeg" class="img-responsive" style="padding:30px 100px 0px 100px">
+ 
+      <img src="vistas/img/plantilla/rapidisimo.jpg" class="img-responsive" style="padding:30px 100px 0px 100px">
 
     </div>
 

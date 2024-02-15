@@ -101,7 +101,7 @@ MODAL AGREGAR GASTO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#00A65A; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -192,7 +192,7 @@ MODAL EDITAR GASTO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#00A65A; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 

@@ -97,7 +97,7 @@ MODAL AGREGAR Mesa
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#008D4C; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -176,7 +176,7 @@ MODAL EDITAR MESA
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#008D4C; color:white">
+        <div class="modal-header" style="background:#4c6ef8; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 

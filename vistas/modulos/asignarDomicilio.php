@@ -24,7 +24,7 @@
 
   <section class="content">
 
-    <div class="info-box" style=" border-top: 5px solid #00A65A;">
+    <div class="info-box" style=" border-top: 5px solid #4c6ef8;">
 
       <div class="box-header with-border">
 
