@@ -119,7 +119,7 @@ CUERPO DOCUMENTO
 
   <?php
   $user = "";
-  $password = "";
+  $password = "password";
   $database = "interrapidisiomo";
   $table = "usuarios";
   
