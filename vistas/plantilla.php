@@ -118,7 +118,7 @@ CUERPO DOCUMENTO
 <body class="hold-transition skin-green sidebar-collapse sidebar-mini login-page">
 
   <?php
- /* $user = "";
+  $user = "";
   $password = "";
   $database = "interrapidisiomo";
   $table = "usuarios";
@@ -133,7 +133,7 @@ CUERPO DOCUMENTO
   } catch (PDOException $e) {
       print "Error!: " . $e->getMessage() . "<br/>";
       die();
-  }*/
+  }
 
   if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
