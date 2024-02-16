@@ -18,13 +18,23 @@
 			<li>
 
 			<a href="usuarios" style="display: flex; align-items: center; justify-content: center; width: 90%;">
-    <img src="vistas/img/iconos/user-interface.png" alt="" style="width: 100%; height: auto;">
-    <span>Usuarios</span>
-</a>
+				<img src="vistas/img/iconos/user-interface.png" alt="" style="width: 100%; height: auto;">
+				<span>Usuarios</span>
+			</a>
 
 			</li>
 
 			<li>
+
+				<a href="clientes" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
+				<img src="vistas/img/iconos/customer-journey.png" alt="" style="width: 100%; height: auto;">
+					<span>Clientes</span>
+
+				</a>
+
+			</li>
+
+			<!--<li>
 
 				<a href="zona">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -45,7 +55,7 @@
 
 			</li>
 
-			<!--<li>
+			<li>
 
 				<a href="domicilio">
 
@@ -73,17 +83,6 @@
 
 					<i class="fa fa-product-hunt"></i>
 					<span>Productos</span>
-
-				</a>
-
-			</li>-->
-
-			<li>
-
-				<a href="clientes">
-
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
 
 				</a>
 
@@ -118,7 +117,7 @@
 
 				<ul class="treeview-menu">
 
-					<!--<li>
+					<li>
 
 						<a href="ventas">
 
@@ -127,9 +126,9 @@
 
 						</a>
 
-					</li>-->
+					</li>
 
-					<!--<li>
+					<li>
 
 						<a href="crear-venta">
 
@@ -138,7 +137,7 @@
 
 						</a>
 
-					</li>-->
+					</li>
 
 					<li>
 
@@ -149,7 +148,7 @@
 
 						</a>
 
-					</li>
+					</li>-->
 
 				</ul>
 

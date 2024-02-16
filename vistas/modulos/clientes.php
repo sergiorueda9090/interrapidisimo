@@ -24,7 +24,7 @@
 
       <div class="box-header with-border">
 
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+        <button class="btn btn-new-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
 
           Agregar clientes
 
@@ -42,7 +42,9 @@
 
            <th style="width:10px">#</th>
            <th>Cliente</th>
-           <th>Telefono</th>
+           <th>Nombre</th>
+           <th>Telefono 1</th>
+           <th>Telefono 2</th>
            <th>Direccion</th>
            <th>Acciones</th>
 
@@ -63,8 +65,10 @@
 
           echo ' <tr>
                   <td>'.($key+1).'</td>
+                  <td>'.$value["cliente"].'</td>
                   <td>'.$value["nombre"].'</td>
-                  <td>'.$value["telefono"].'</td>
+                  <td>'.$value["telefono1"].'</td>
+                  <td>'.$value["telefono2"].'</td>
                   <td>'.$value["direccion"].'</td>';
 
 
@@ -72,9 +76,9 @@
 
                     <div class="btn-group">
 
-                      <button class="btn btn-warning btnEditarClientes" idCliente="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-warning btnEditarClientes" idCliente="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCliente"><i class="fa fa-pencil"></i></button>
 
-                      <button class="btn btn-danger btnEliminarClientes" idCliente="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-danger btnEliminarClientes" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                     </div>
 
@@ -99,9 +103,8 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR USUARIO
+MODAL AGREGAR CLIENTE
 ======================================-->
-
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
@@ -130,50 +133,75 @@ MODAL AGREGAR USUARIO
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <div class="row">
 
-            <div class="form-group">
+              <!-- ENTRADA PARA EL CLIENTE -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control input-lg" name="cliente" placeholder="Cliente" required>
+                  </div>
+                </div>
+              </div>
 
-              <div class="input-group">
+               <!-- ENTRADA PARA EL NOMBRE -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control input-lg" name="nombreCliente" placeholder="Ingresar nombre" required>
+                  </div>
+                </div>
+              </div>
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <!-- ENTRADA PARA EL TELEFONO 1-->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                    <input type="text" class="form-control input-lg" name="telefonoCliente1" placeholder="Ingresar Telefono 1" required>
+                  </div>
+                </div>
+              </div>
 
-                <input type="text" class="form-control input-lg" name="nombreCliente" placeholder="Ingresar nombre" required>
+              <!-- ENTRADA PARA EL TELEFONO 2-->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                    <input type="text" class="form-control input-lg" name="telefonoCliente2" placeholder="Ingresar Telefono 2" >
+                  </div>
+                </div>
+              </div>
 
+              <!-- ENTRADA CREDITO O CONTADO-->
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                    <select class="form-control input-lg" name="tipo">
+                      <option value="">TIPO</option>
+                      <option value="CREDITO">CREDITO</option>
+                      <option value="CONTADO">CONTADO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ENTRADA PARA LA DIREECION-->
+              <div class="col-lg-12">            
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                    <textarea  type="text" rows="4" class="form-control" name="direccionCliente" placeholder="Ingresar Direccion" required></textarea>
+                  </div>
+                </div>
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL USUARIO -->
-
-            <div class="form-group">
-
-             <div class="input-group">
-
-               <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-
-               <input type="text" class="form-control input-lg" name="telefonoCliente" placeholder="Ingresar Telefono" required>
-
-             </div>
-
-           </div>
-
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
-
-            <div class="form-group">
-
-             <div class="input-group">
-
-               <span class="input-group-addon"><i class="fa fa-home"></i></span>
-
-               <textarea  type="text" rows="4" class="form-control" name="direccionCliente" placeholder="Ingresar Direccion" required></textarea>
-
-             </div>
-
-           </div>
-
           </div>
-
         </div>
 
         <!--=====================================
@@ -184,7 +212,7 @@ MODAL AGREGAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-success">Guardar clientes</button>
+          <button type="submit" class="btn btn-new-primary">Guardar clientes</button>
 
         </div>
 
@@ -202,12 +230,14 @@ MODAL AGREGAR USUARIO
   </div>
 
 </div>
-
 <!--=====================================
-MODAL EDITAR USUARIO
+END MODAL AGREGAR CLIENTE
 ======================================-->
 
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
+<!--=====================================
+MODAL EDITAR CLIENTE
+======================================-->
+<div id="modalEditarCliente" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -221,9 +251,9 @@ MODAL EDITAR USUARIO
 
         <div class="modal-header" style="background:#4c6ef8; color:white">
 
-          <button type="button" class="close salirEditarCliente" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar cliente</h4>
+          <h4 class="modal-title">Editar clientes</h4>
 
         </div>
 
@@ -235,68 +265,93 @@ MODAL EDITAR USUARIO
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <div class="row">
 
-            <div class="form-group">
+              <!-- ENTRADA PARA EL CLIENTE -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control input-lg clienteEditar" name="clienteEditar" placeholder="Cliente" required>
+                    <input type="text" class="form-control input-lg idEditar"      name="id" placeholder="Cliente">
+                  </div>
+                </div>
+              </div>
 
-              <div class="input-group">
+               <!-- ENTRADA PARA EL NOMBRE -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control input-lg nombreEditar" name="nombreCliente" placeholder="Ingresar nombre" required>
+                  </div>
+                </div>
+              </div>
 
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <!-- ENTRADA PARA EL TELEFONO 1-->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                    <input type="text" class="form-control input-lg telefonoEditar1" name="telefonoCliente1" placeholder="Ingresar Telefono 1" required>
+                  </div>
+                </div>
+              </div>
 
-                <input type="text" class="form-control input-lg nombreClienteEditar" name="nombreClienteEditar" placeholder="Ingresar nombre" required>
+              <!-- ENTRADA PARA EL TELEFONO 2-->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                    <input type="text" class="form-control input-lg telefonoEditar2" name="telefonoCliente2" placeholder="Ingresar Telefono 2" >
+                  </div>
+                </div>
+              </div>
 
+              <!-- ENTRADA CREDITO O CONTADO-->
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                    <select class="form-control input-lg tipoEditar" name="tipo">
+                      <option value="">TIPO</option>
+                      <option value="CREDITO">CREDITO</option>
+                      <option value="CONTADO">CONTADO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ENTRADA PARA LA DIREECION-->
+              <div class="col-lg-12">            
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                    <textarea  type="text" rows="4" class="form-control direccionEditar" name="direccionCliente" placeholder="Ingresar Direccion" required></textarea>
+                  </div>
+                </div>
               </div>
 
             </div>
 
-
-            <!-- ENTRADA PARA EL USUARIO -->
-
-            <div class="form-group">
-
-             <div class="input-group">
-
-               <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-
-               <input type="text" class="form-control input-lg telefonoClienteEditar" name="telefonoClienteEditar" placeholder="Ingresar Telefono" required>
-               <input type="hidden" class="form-control input-lg idClienteEditar" name="idClienteEditar">
-             </div>
-
-           </div>
-
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
-
-            <div class="form-group">
-
-             <div class="input-group">
-
-               <span class="input-group-addon"><i class="fa fa-home"></i></span>
-
-               <textarea  type="text" rows="4" class="form-control direccionClienteEditar" name="direccionClienteEditar" placeholder="Ingresar Direccion" required></textarea>
-
-             </div>
-
-           </div>
-
           </div>
-      </div>
+        </div>
+
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
         <div class="modal-footer">
 
-          <button type="button" class="btn btn-default pull-left salirEditarCliente" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-success">Modificar cliente</button>
+          <button type="submit" class="btn btn-new-primary">Editar cliente</button>
 
         </div>
 
-     <?php
-
-          $editarCliente = new  ClienteCtr();
-          $editarCliente -> ctrEditarCliente();
-
+        <?php
+          $editarCliente = new ClienteCtr();
+          $editarCliente->ctrEditarCliente();
         ?>
 
       </form>
@@ -306,6 +361,9 @@ MODAL EDITAR USUARIO
   </div>
 
 </div>
+<!--=====================================
+END MODAL EDITAR CLIENTE
+======================================-->
 
 <?php
 
@@ -313,3 +371,4 @@ MODAL EDITAR USUARIO
   $borrarCliente -> ctrBorrarCliente();
 
 ?>
+<script src="vistas/js/clientes.js"></script>

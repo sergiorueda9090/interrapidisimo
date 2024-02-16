@@ -6,11 +6,13 @@ class ClienteMdl{
 
   static public function mdlCrearCliente($tabla,$datos){
 
-    $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre,telefono,direccion) VALUES (:nombre,:telefono,:direccion)");
+    $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cliente,nombre,telefono1,telefono2,direccion) VALUES (:cliente,:nombre,:telefono1,:telefono2,:direccion)");
 
-    $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-    $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-    $stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+    $stmt->bindParam(":cliente",    $datos["cliente"],   PDO::PARAM_STR);
+    $stmt->bindParam(":nombre",     $datos["nombre"],    PDO::PARAM_STR);
+    $stmt->bindParam(":telefono1",  $datos["telefono1"], PDO::PARAM_STR);
+    $stmt->bindParam(":telefono2",  $datos["telefono2"], PDO::PARAM_STR);
+    $stmt->bindParam(":direccion",  $datos["direccion"], PDO::PARAM_STR);
 
     if($stmt->execute()){
 
@@ -59,12 +61,19 @@ class ClienteMdl{
 
   static public function mdlEditarCliente($tabla, $datos){
 
-    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, direccion = :direccion, telefono = :telefono WHERE id = :id");
+    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET cliente   = :cliente, 
+                                                             nombre    = :nombre,
+                                                             telefono1 = :telefono1,
+                                                             telefono2 = :telefono2,
+                                                             direccion = :direccion 
+                                          WHERE id = :id");
 
-    $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-    $stmt -> bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-    $stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-    $stmt -> bindParam(":id", $datos["id"], PDO::PARAM_STR);
+    $stmt->bindParam(":cliente",    $datos["cliente"],   PDO::PARAM_STR);
+    $stmt->bindParam(":nombre",     $datos["nombre"],    PDO::PARAM_STR);
+    $stmt->bindParam(":telefono1",  $datos["telefono1"], PDO::PARAM_STR);
+    $stmt->bindParam(":telefono2",  $datos["telefono2"], PDO::PARAM_STR);
+    $stmt->bindParam(":direccion",  $datos["direccion"], PDO::PARAM_STR);
+    $stmt->bindParam(":id",         $datos["id"],        PDO::PARAM_INT);
 
     if($stmt -> execute()){
 

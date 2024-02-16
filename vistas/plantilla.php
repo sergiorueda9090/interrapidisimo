@@ -118,8 +118,8 @@ CUERPO DOCUMENTO
 <body class="hold-transition skin-green sidebar-collapse sidebar-mini login-page">
 
   <?php
-  $user = "";
-  $password = "password";
+ /* $user = "";
+  $password = "";
   $database = "interrapidisiomo";
   $table = "usuarios";
   
@@ -133,7 +133,7 @@ CUERPO DOCUMENTO
   } catch (PDOException $e) {
       print "Error!: " . $e->getMessage() . "<br/>";
       die();
-  }
+  }*/
 
   if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
@@ -206,11 +206,10 @@ CUERPO DOCUMENTO
 <script src="vistas/js/usuarios.js"></script>
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/agregarMesa.js"></script>
-<script src="vistas/js/productos.js"></script>
+
 <script src="vistas/js/agregarMesaBase.js"></script>
 <script src="vistas/js/domicilios.js"></script>
 <script src="vistas/js/reportes.js"></script>
-<script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/gastos.js"></script>
 
 </body>

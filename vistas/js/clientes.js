@@ -16,10 +16,13 @@ $(document).on('click','.btnEditarClientes',function(){
 		processData: false,
 		dataType: "json",
 		success: function(respuesta){
-      $(".nombreClienteEditar").val(respuesta["nombre"]);
-      $(".telefonoClienteEditar").val(respuesta["telefono"]);
-      $(".direccionClienteEditar").val(respuesta["direccion"]);
-      $(".idClienteEditar").val(respuesta["id"]);
+      $(".clienteEditar").val(respuesta["cliente"]);
+      $(".nombreEditar").val(respuesta["nombre"]);
+      $(".telefonoEditar1").val(respuesta["telefono1"]);
+      $(".telefonoEditar2").val(respuesta["telefono2"]);
+      $(".tipoEditar").val("CREDITO");
+      $(".direccionEditar").val(respuesta["direccion"]);
+      $(".idEditar").val(respuesta["id"]);
 		}
 
 	});

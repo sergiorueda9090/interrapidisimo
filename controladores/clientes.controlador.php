@@ -5,13 +5,15 @@ class ClienteCtr{
   static public function ctrCrearCliente(){
 
 
-    if(isset($_POST["nombreCliente"])){
+    if(isset($_POST["cliente"])){
 
       $tabla = "clientes";
-
-      $datos = array("nombre"=>$_POST["nombreCliente"],
-                     "direccion"=>$_POST["direccionCliente"],
-                     "telefono"=>$_POST["telefonoCliente"]);
+      
+      $datos = array("cliente"    => $_POST["cliente"],
+                     "nombre"     => $_POST["nombreCliente"],
+                     "telefono1"  => $_POST["telefonoCliente1"],
+                     "telefono2"  => $_POST["telefonoCliente2"],
+                     "direccion"  => $_POST["direccionCliente"]);
 
       $respuesta = ClienteMdl::mdlCrearCliente($tabla,$datos);
 
@@ -67,14 +69,17 @@ class ClienteCtr{
 
   static public function ctrEditarCliente(){
 
-    if(isset($_POST["nombreClienteEditar"])){
+    if(isset($_POST["clienteEditar"])){
 
       $tabla = "clientes";
 
-      $datos = array("nombre"=>$_POST["nombreClienteEditar"],
-                     "direccion"=>$_POST["direccionClienteEditar"],
-                     "telefono"=>$_POST["telefonoClienteEditar"],
-                      "id"=>$_POST["idClienteEditar"]);
+      $datos = array("cliente"    => $_POST["clienteEditar"],
+                     "nombre"     => $_POST["nombreCliente"],
+                     "telefono1"  => $_POST["telefonoCliente1"],
+                     "telefono2"  => $_POST["telefonoCliente2"],
+                     "tipo"       => $_POST["tipo"],
+                     "direccion"  => $_POST["direccionCliente"],
+                     "id"         => $_POST["id"]);
 
       $respuesta = ClienteMdl::mdlEditarCliente($tabla,$datos);
 
@@ -132,6 +137,7 @@ class ClienteCtr{
 		if(isset($_GET["idCliente"])){
 
 			$tabla = "clientes";
+      
 			$datos = $_GET["idCliente"];
 
       $respuesta = ClienteMdl::mdlBorrarCliente($tabla, $datos);

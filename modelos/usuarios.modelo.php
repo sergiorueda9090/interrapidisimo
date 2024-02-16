@@ -42,16 +42,17 @@ class ModeloUsuarios{
 	=============================================*/
 
 	static public function mdlIngresarUsuario($tabla, $datos){
+		
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, placa, telefono, foto, estado) VALUES (:nombre, :usuario, :password, :perfil, :placa, :telefono, :foto, :estado)");
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto,placa,telefonoUsuario) VALUES (:nombre, :usuario, :password, :perfil, :foto, :placa, :telefono)");
-
-		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
-		$stmt->bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-		$stmt->bindParam(":placa", $datos["placaMoto"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefonoMoto"], PDO::PARAM_STR);
-		$stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre",     $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":usuario",    $datos["usuario"], PDO::PARAM_STR);
+		$stmt->bindParam(":password",   $datos["password"], PDO::PARAM_STR);
+		$stmt->bindParam(":perfil",     $datos["perfil"], PDO::PARAM_STR);
+		$stmt->bindParam(":placa",      $datos["placa"], PDO::PARAM_STR);
+		$stmt->bindParam(":telefono",   $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":foto",       $datos["foto"], PDO::PARAM_STR);
+		$stmt->bindParam(":estado",     $datos["estado"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
 
