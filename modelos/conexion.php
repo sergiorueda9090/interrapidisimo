@@ -8,7 +8,7 @@ class Conexion{
 			            "sernetel",
 			            "1917alejandraMauricio1290***maria");*/
 
-		$link = new PDO("mysql:host=localhost;dbname=example_database","example_user","password");
+		$link = new PDO("mysql:host=localhost;dbname=interrapidisiomo","root","");
 		
 		$link->exec("set names utf8");
 
