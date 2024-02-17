@@ -4,7 +4,7 @@
 
 		<ul class="sidebar-menu">
 
-			<li class="active">
+			<!--<li class="active">
 
 				<a href="inicio">
 
@@ -13,9 +13,9 @@
 
 				</a>
 
-			</li>
+			</li>-->
 
-			<li>
+			<li class="active">
 
 			<a href="usuarios" style="display: flex; align-items: center; justify-content: center; width: 90%;">
 				<img src="vistas/img/iconos/user-interface.png" alt="" style="width: 100%; height: auto;">

@@ -181,7 +181,7 @@ CUERPO DOCUMENTO
 
     }else{
 
-      include "modulos/inicio.php";
+      include "modulos/usuarios.php";
 
     }
 
