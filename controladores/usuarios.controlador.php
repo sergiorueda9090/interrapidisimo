@@ -56,7 +56,7 @@ class ControladorUsuarios{
 
 							echo '<script>
 
-								window.location = "inicio";
+								window.location = "usuarios";
 
 							</script>';
 
