@@ -273,7 +273,7 @@ MODAL EDITAR CLIENTE
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <input type="text" class="form-control input-lg clienteEditar" name="clienteEditar" placeholder="Cliente" required>
-                    <input type="text" class="form-control input-lg idEditar"      name="id" placeholder="Cliente">
+                    <input type="hidden" class="form-control input-lg idEditar"      name="id" placeholder="Cliente">
                   </div>
                 </div>
               </div>
