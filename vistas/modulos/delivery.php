@@ -39,28 +39,6 @@
   <section class="content">
 
 
-
-  <!-- Button to trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loadingModal">
-  Open Loading Modal
-</button>
-
-<!-- Loading Modal -->
-<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="text-center">
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <div class="loader">Cargando...</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
     <div class="box">
 
       <div class="box-header with-border">
