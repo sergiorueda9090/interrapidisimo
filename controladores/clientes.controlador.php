@@ -186,4 +186,14 @@ class ClienteCtr{
 
 	}
 
+  /*=============================================
+	CHOOSING CUSTOMER
+	=============================================*/
+  static public function ctrChoosingCustomber($id){
+    $table    = "clientes";
+    $response = ClienteMdl::mdlChoosingCustomers($table, $id);
+    return $response;
+  }
+
+
 }

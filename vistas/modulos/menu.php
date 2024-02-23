@@ -34,6 +34,16 @@
 
 			</li>
 
+			<li>
+
+				<a href="delivery" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
+				<img src="vistas/img/iconos/customer-journey.png" alt="" style="width: 100%; height: auto;">
+					<span>Delivery</span>
+
+				</a>
+
+			</li>
+
 			<!--<li>
 
 				<a href="zona">

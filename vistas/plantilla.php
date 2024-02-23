@@ -159,6 +159,7 @@ CUERPO DOCUMENTO
 
       if($_GET["ruta"] == "inicio" ||
          $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "delivery" ||
          $_GET["ruta"] == "asignarDomicilio" ||
          $_GET["ruta"] == "zona" ||
          $_GET["ruta"] == "domicilio" ||

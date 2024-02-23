@@ -154,4 +154,23 @@ class ModeloUsuarios{
 
 	}
 
+
+	/*=============================================
+	SHOW DOMICILIARYS
+	=============================================*/
+
+	static public function mdlListDomiciliary($tabla){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE perfil = 'Mensajero'");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 }

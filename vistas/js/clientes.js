@@ -24,7 +24,6 @@ $(document).on('click','.btnEditarClientes',function(){
       $(".direccionEditar").val(respuesta["direccion"]);
       $(".idEditar").val(respuesta["id"]);
 		}
-
 	});
 })
 

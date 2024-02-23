@@ -119,4 +119,27 @@ class ClienteMdl{
 
   }
 
+  /*=============================================
+	CHOOSING CUSTOMER
+	=============================================*/
+  static public function mdlChoosingCustomers($table, $id){
+
+    if($id != null){
+
+      $stmt = Conexion::conectar()->prepare("SELECT * FROM $table WHERE id = :id");
+
+      $stmt -> bindParam(":id", $id, PDO::PARAM_INT);
+
+      $stmt -> execute();
+
+      return $stmt->fetch();
+
+    }
+
+    $stmt->close();
+
+    $stmt = null;
+
+  }
+
 }
