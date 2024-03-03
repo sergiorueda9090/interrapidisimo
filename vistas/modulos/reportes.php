@@ -138,6 +138,7 @@ MODAL AGREGAR CLIENTE
             <thead>
                 <tr>
                     <th>N. Cliente</th>
+                    <th>Cliente</th>
                     <th>N. Domiciliario</th>
                     <th>Destino</th>
                     <th>Valor Domicilio</th>

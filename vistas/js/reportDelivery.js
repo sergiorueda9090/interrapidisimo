@@ -26,6 +26,7 @@ $(document).on("click", ".btnShowReportDelivery", function(){
                     console.log("domicilio ",domicilio.nombre)
                     let fila = "<tr>" +
                         "<td>" + domicilio.nombreCliente + "</td>" +
+                        "<td>" + domicilio.cliente + "</td>" +
                         "<td>" + domicilio.nombre + "</td>" +
                         "<td>" + domicilio.newAddress + "</td>" +
                         "<td>" + domicilio.deliveryPraci + "</td>" +
