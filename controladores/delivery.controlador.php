@@ -64,14 +64,16 @@ class DeliveryCTR{
             $browser          = $_POST['browser']           ?? null;
             $tipo             = $_POST['tipo']              ?? null;
             $tipoPagar        = $_POST['tipoPagar']         ?? null;
+            $selectPayMethod  = $_POST['r_selectPayMethod'] ?? null;
             $direccionCliente = $_POST['direccionCliente']  ?? null;
+            $direccionNew     = $_POST['direccionNew']      ?? null;
             $direccionDestino = $_POST['direccionDestino']  ?? null;
             $nota             = $_POST['nota']              ?? null;
             $valorDomicilio   = $_POST['valorDomicilio']    ?? null;
-            $money            = $_POST['estado']             ?? null;
+            $money            = $_POST['estado']            ?? null;
             $idUser           = $_POST['idUser']            ?? null;
 
-            if (!empty($customerName) && !empty($browser) && !empty($tipo) && !empty($tipoPagar) && !empty($direccionCliente) && !empty($direccionDestino) && !empty($nota) && !empty($valorDomicilio)) {
+            if (!empty($customerName) && !empty($browser) && !empty($tipo) && !empty($tipoPagar) && !empty($direccionCliente) && !empty($direccionDestino) && !empty($nota) && !empty($valorDomicilio) && !empty($selectPayMethod)) {
                 
                 $table = "delviery";
 
@@ -79,7 +81,9 @@ class DeliveryCTR{
                               "idDomiciliary"       => $browser,
                               "type"                => $tipo,
                               "typeOfPay"           => $tipoPagar,
+                              "selectPayMethod"     => $selectPayMethod,
                               "pickupAddress"       => $direccionCliente,
+                              "newAddress"          => $direccionNew,
                               "destinationAddress"  => $direccionDestino,
                               "note"                => $nota,
                               "deliveryPraci"       => $valorDomicilio,
@@ -146,17 +150,19 @@ class DeliveryCTR{
 
         if(isset($_POST['customerNameEditar'])){
 
-            $customerName     = $_POST['customerNameEditar']      ?? null;
-            $browser          = $_POST['browserEditar']           ?? null;
-            $tipo             = $_POST['tipoEditar']              ?? null;
-            $tipoPagar        = $_POST['tipoPagarEditar']         ?? null;
-            $direccionCliente = $_POST['direccionClienteEditar']  ?? null;
-            $direccionDestino = $_POST['direccionDestinoEditar']  ?? null;
-            $nota             = $_POST['notaEditar']              ?? null;
-            $valorDomicilio   = $_POST['valorDomicilioEditar']    ?? null;
-            $money            = $_POST['estadoEditar']             ?? null;
-            $idUser           = $_POST['idUserEditar']            ?? null;
-            $idDelivery       = $_POST['idDeliveryEditar']        ?? null;
+            $customerName           = $_POST['customerNameEditar']      ?? null;
+            $browser                = $_POST['browserEditar']           ?? null;
+            $tipo                   = $_POST['tipoEditar']              ?? null;
+            $tipoPagar              = $_POST['tipoPagarEditar']         ?? null;
+            $selectPayMethodEditar  = $_POST['r_selectPayMethodEditar'] ?? null;
+            $direccionCliente       = $_POST['direccionClienteEditar']  ?? null;
+            $direccionNew           = $_POST['newDireccionEditar']      ?? null;
+            $direccionDestino       = $_POST['direccionDestinoEditar']  ?? null;
+            $nota                   = $_POST['notaEditar']              ?? null;
+            $valorDomicilio         = $_POST['valorDomicilioEditar']    ?? null;
+            $money                  = $_POST['estadoEditar']            ?? null;
+            $idUser                 = $_POST['idUserEditar']            ?? null;
+            $idDelivery             = $_POST['idDeliveryEditar']        ?? null;
 
             if (!empty($idDelivery)) {
                 
@@ -168,7 +174,9 @@ class DeliveryCTR{
                               "idDomiciliary"       => $browser,
                               "type"                => $tipo,
                               "typeOfPay"           => $tipoPagar,
+                              "selectPayMethod"     => $selectPayMethodEditar,
                               "pickupAddress"       => $direccionCliente,
+                              "newAddress"          => $direccionNew,
                               "destinationAddress"  => $direccionDestino,
                               "note"                => $nota,
                               "deliveryPraci"       => $valorDomicilio,

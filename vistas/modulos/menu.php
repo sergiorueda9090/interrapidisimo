@@ -37,12 +37,21 @@
 			<li>
 
 				<a href="delivery" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/customer-journey.png" alt="" style="width: 100%; height: auto;">
+				<img src="vistas/img/iconos/domis.png" alt="" style="width: 100%; height: auto;">
 					<span>Delivery</span>
-
 				</a>
 
 			</li>
+
+
+			<li>
+
+				<a href="reportes" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
+				<img src="vistas/img/iconos/reporte.png" alt="" style="width: 100%; height: auto;">
+					<span>reportes</span>
+				</a>
+
+				</li>
 
 			<!--<li>
 

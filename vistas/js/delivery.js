@@ -21,12 +21,12 @@ $(document).on("input", ".customers", async function(){
 
         // Oculta el indicador de carga cuando se completa la solicitud
         $('.loader').hide();
-
+        $(".nameCliente").val(respuesta["nombre"]);
         $(".direccionCliente").val(respuesta["direccion"]);
         $(".telefonoCliente1").val(respuesta["telefono1"]);
         $(".telefonoCliente2").val(respuesta["telefono2"]);
         $(".tipo").val("CONTADO");
-        $(".tipoPagar").val("CONTADO");
+        //$(".tipoPagar").val("CONTADO");
         $(".tipoEditar").val("CREDITO");
         $(".idCustomer").val(respuesta["id"]);
 
@@ -56,16 +56,37 @@ $(document).on("click", ".btnEditarDelivery", function(){
         $(".idDeliveryEditar").val(respuesta["id"]);
         $(".customerNameEditar").val(respuesta["idCustomer"]);
         $(".browserEditar").val(respuesta["idDomiciliary"]);
+        $(".nameClienteEditar").val(respuesta["nombre"]);
         $(".telefonoCliente1Editar").val(respuesta["telefono1"]);
         $(".telefonoCliente2Editar").val(respuesta["telefono2"]);
         $(".tipoEditar").val(respuesta["type"]);
         $(".tipoPagarEditar").val(respuesta["typeOfPay"]);
+
+        if(respuesta["typeOfPay"] === "CONTADO"){
+          $(".selectPayMethodEditar").css({"display":"block"});
+        }else{
+          $(".selectPayMethodEditar").css({"display":"none"}) ;
+        }
+        console.log("sdasd ",respuesta);
+        /** */
+        if (respuesta["selectPayMethod"] === "Efectivo") {
+          $("#r_efectivoEditar").prop("checked", true);
+        } else if (respuesta["selectPayMethod"] === "Yoppy") {
+            $("#r_yoppyEditar").prop("checked", true);
+        } else if (respuesta["selectPayMethod"] === "Transferencia") {
+            $("#r_transferenciaEditar").prop("checked", true);
+        } else if (respuesta["selectPayMethod"] === "Pendiente") {
+          $("#r_pendienteEditar").prop("checked", true);
+      }
+        /** */
+        
         $(".direccionClienteEditar").val(respuesta["pickupAddress"]);
         $(".direccionDestinoEditar").val(respuesta["destinationAddress"]);
+        $(".newDireccionEditar").val(respuesta["newAddress"]);
         $(".notaEditar").val(respuesta["note"]);
         $(".valorDomicilioEditar").val(respuesta["deliveryPraci"]);
         $(".estado").val(respuesta["paymentProcess"]);
-        console.log(respuesta["paymentProcess"]);
+        
         if (respuesta["paymentProcess"] === "enproceso") {
           $("#enprocesoEditar").prop("checked", true);
         } else if (respuesta["paymentProcess"] === "pagado") {
@@ -189,3 +210,36 @@ $(document).on("click", ".btnEliminarDelivery", function(){
 
       }
   })
+
+
+  $(document).on("change",".tipoPagar",function(){
+
+    let tipoPagar = $(".tipoPagar").val();
+   
+    if(tipoPagar === "CONTADO"){
+
+      $(".selectPayMethod").css({"display":"block"});
+
+    }else{
+
+      $(".selectPayMethod").css({"display":"none"}) ;
+
+    }
+
+  });
+
+  $(document).on("change",".tipoPagarEditar",function(){
+
+    let tipoPagar = $(".tipoPagarEditar").val();
+   
+    if(tipoPagar === "CONTADO"){
+
+      $(".selectPayMethodEditar").css({"display":"block"});
+
+    }else{
+
+      $(".selectPayMethodEditar").css({"display":"none"}) ;
+
+    }
+
+  });
