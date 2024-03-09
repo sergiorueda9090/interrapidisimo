@@ -235,6 +235,10 @@ $(document).on("click",".btnAddUserEditar",function(){
   showTableCustomerUsers(); 
   $(".btnAddUser").css({"display":"block"});
   $(".btnAddUserEditar").css({"display":"none"});
+  $(".nombreUsuarioCliente").val("");
+  $(".telefono1UsuarioCliente").val("");
+  $(".telefono2UsuarioCliente").val("");
+  $(".direccionUsuarioCliente").val("");
 });
 
 /*=============================================

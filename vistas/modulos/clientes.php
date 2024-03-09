@@ -10,6 +10,10 @@
   .btnAddUserClienteEditar{
     display:none;
   }
+
+  .btnAddUserEditar{
+    display:none;
+  }
 </style>
 <div class="content-wrapper">
 
