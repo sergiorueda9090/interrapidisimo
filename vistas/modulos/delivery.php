@@ -22,7 +22,7 @@
 
     <h1>
 
-      Administrar Deleviry
+      Administrar Delivery
 
     </h1>
 
@@ -30,7 +30,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar Deleviry</li>
+      <li class="active">Administrar Delivery</li>
 
     </ol>
 
@@ -45,7 +45,7 @@
 
         <button class="btn btn-new-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
 
-          Agregar Deleviry
+          Agregar Delivery
 
         </button>
 
@@ -67,11 +67,11 @@
            <th style="width:10px">#</th>
            <th>Cliente</th>
            <th>Telefono</th>
-           <th>Domiciliario</th>
+           <th>Mensajero</th>
            <th>Tipo</th>
            <th>Modo de pago</th>
-           <th>Direccion de recogida</th>
-           <th>Direccion de entrega</th>
+           <th>Datos de recogida</th>
+           <th>Datos de destino</th>
            <th>Nota</th>
            <th>Precio domicilio</th>
            <th>Proceso de pago</th>
@@ -196,9 +196,9 @@ MODAL AGREGAR CLIENTE
                <div class="col-lg-6">
                 <div class="form-group">
                   <div class="input-group">
-                  <label for="browser" class="form-label">Selecciona el domiciliario:</label>
+                  <label for="browser" class="form-label">Selecciona el Mensajero:</label>
                   <select class="custom-select browser form-control input-lg browser"  name="browser" id="browser" required>
-                    <option selected>Selecciona el domiciliario</option>
+                    <option selected>Selecciona el Mensajero</option>
                     <?php
                       foreach($domiciliarys as $key => $values){
                         echo '<option  value="'.$values['id'].'">'.$values['nombre'].'</option>';
@@ -210,15 +210,25 @@ MODAL AGREGAR CLIENTE
               </div>
 
               <!-- NAME CUSTOMER -->
-              <div class="col-lg-4">
+              <!--<div class="col-lg-4">
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <input type="text" class="form-control input-lg nameCliente" name="nameCliente" placeholder="Nombre Cliente" readonly>
                   </div>
                 </div>
+              </div>-->
+                
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                    <select class="form-control input-lg nameCliente" name="nameCliente" id="nameCliente" readonly>
+                      <option value="">Sin Usuarios</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-
 
               <!-- ENTRADA PARA EL TELEFONO 1-->
               <div class="col-lg-4">
@@ -247,8 +257,8 @@ MODAL AGREGAR CLIENTE
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
                     <select class="form-control input-lg tipo" name="tipo"  readonly>
                       <option value="">TIPO</option>
-                      <option value="CREDITO">CREDITO</option>
-                      <option value="CONTADO">CONTADO</option>
+                      <option value="CREDITO">Credito</option>
+                      <option value="CONTADO">Contado</option>
                     </select>
                   </div>
                 </div>
@@ -261,8 +271,8 @@ MODAL AGREGAR CLIENTE
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
                     <select class="form-control input-lg tipoPagar" name="tipoPagar" required>
                       <option value="">Metodo de pago</option>
-                      <option value="CREDITO">CREDITO</option>
-                      <option value="CONTADO">CONTADO</option>
+                      <option value="CREDITO">Credito</option>
+                      <option value="CONTADO">Contado</option>
                     </select>
                   </div>
                 </div>
@@ -274,7 +284,7 @@ MODAL AGREGAR CLIENTE
                   <label for="r_efectivo">Efectivo</label>
                  
                   <input type="radio" id="r_yoppy" name="r_selectPayMethod" value="Yoppy" class="r_yoppy">
-                  <label for="r_yoppy">Yoppy</label>
+                  <label for="r_yoppy">Yappy</label>
 
                   <input type="radio" id="r_transferencia" name="r_selectPayMethod" value="Transferencia" class="r_transferencia">
                   <label for="r_transferencia">Transferencia</label>
@@ -297,7 +307,7 @@ MODAL AGREGAR CLIENTE
               <!-- ENTRADA PARA LA DIREECION-->
               <div class="col-lg-4">            
                 <div class="form-group">
-                <label for="browser" class="form-label">Direccion:</label>
+                <label for="browser" class="form-label">Datos de Recogida:</label>
                  <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-home"></i></span>
                     <textarea  type="text" rows="4" class="form-control direccionNew" name="direccionNew" placeholder="Ingresar Direccion" required></textarea>
@@ -308,7 +318,7 @@ MODAL AGREGAR CLIENTE
             <!-- ENTRADA PARA LA DIREECION DESTINO-->
               <div class="col-lg-4">            
                 <div class="form-group">
-                <label for="browser" class="form-label">Direccion destino:</label>
+                <label for="browser" class="form-label">Datos de destino:</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-home"></i></span>
                     <textarea  type="text" rows="4" class="form-control direccionDestino" name="direccionDestino" placeholder="Ingresar Direccion" required></textarea>
@@ -319,7 +329,7 @@ MODAL AGREGAR CLIENTE
               <!-- NOTA -->
               <div class="col-lg-12">            
                 <div class="form-group">
-                <label for="browser" class="form-label">NOTA:</label>
+                <label for="browser" class="form-label">Nota:</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-home"></i></span>
                     <textarea  type="text" rows="4" class="form-control nota" name="nota" placeholder="Nota"></textarea>
@@ -331,8 +341,8 @@ MODAL AGREGAR CLIENTE
               <div class="col-lg-6">
                 <div class="form-group">
                   <div class="input-group">
-                  <label for="browser" class="form-label">Valor delivery:</label>
-                    <input type="number" class="form-control input-lg valorDomicilio" name="valorDomicilio" placeholder="Valor domicilio" required>
+                  <label for="browser" class="form-label">Valor Delivery:</label>
+                    <input type="text" class="form-control input-lg valorDomicilio" name="valorDomicilio" placeholder="Valor domicilio" required>
                   </div>
                 </div>
               </div>
@@ -436,7 +446,7 @@ MODAL EDITAR CLIENTE
                 <div class="form-group">
                   <div class="input-group">
                   <label for="browser" class="form-label">Selecciona el cliente:</label>
-                  <select class="custom-select customers form-control input-lg customerNameEditar" name="customerNameEditar" required>
+                  <select class="custom-select customers form-control input-lg customerNameEditar" name="customerNameEditar" required disabled>
                     <option selected>Selecciona el cliente</option>
                     <?php
                       foreach($customer as $key => $values){
@@ -467,14 +477,25 @@ MODAL EDITAR CLIENTE
               </div>
 
               <!-- NAME CUSTOMER -->
-              <div class="col-lg-4">
+              <!--<div class="col-lg-4">
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
                     <input type="text" class="form-control input-lg nameClienteEditar" name="nameClienteEditar" placeholder="Nombre Cliente" readonly>
                   </div>
                 </div>
+              </div>-->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                    <select class="form-control input-lg nameClienteEditar" name="nameClienteEditar" id="nameClienteEditar" readonly>
+                      <option value="">Sin Usuarios</option>
+                    </select>
+                  </div>
+                </div>
               </div>
+
 
               <!-- ENTRADA PARA EL TELEFONO 1-->
               <div class="col-lg-4">
@@ -503,9 +524,9 @@ MODAL EDITAR CLIENTE
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
                     <select class="form-control input-lg tipoEditar" name="tipoEditar" readonly>
-                      <option value="">TIPO</option>
-                      <option value="CREDITO">CREDITO</option>
-                      <option value="CONTADO">CONTADO</option>
+                      <option value="">Tipo</option>
+                      <option value="CREDITO">Credito</option>
+                      <option value="CONTADO">Contado</option>
                     </select>
                   </div>
                 </div>
@@ -518,8 +539,8 @@ MODAL EDITAR CLIENTE
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
                     <select class="form-control input-lg tipoPagarEditar" name="tipoPagarEditar" required>
                       <option value="">Metodo de pago</option>
-                      <option value="CREDITO">CREDITO</option>
-                      <option value="CONTADO">CONTADO</option>
+                      <option value="CREDITO">Credito</option>
+                      <option value="CONTADO">Contado</option>
                     </select>
                   </div>
                 </div>
@@ -531,13 +552,13 @@ MODAL EDITAR CLIENTE
                   <label for="r_efectivo">Efectivo</label>
                  
                   <input type="radio" id="r_yoppyEditar" name="r_selectPayMethodEditar" value="Yoppy" class="r_yoppyEditar">
-                  <label for="r_yoppyEditar">YOPPY</label>
+                  <label for="r_yoppyEditar">Yappy</label>
                     
                   <input type="radio" id="r_transferenciaEditar" name="r_selectPayMethodEditar" value="Transferencia" class="r_transferenciaEditar">
-                  <label for="r_transferenciaEditar">TRANSFERENCIA</label>
+                  <label for="r_transferenciaEditar">Transferencia</label>
 
                   <input type="radio" id="r_pendienteEditar" name="r_selectPayMethodEditar" value="Pendiente" class="r_pendienteEditar">
-                  <label for="r_pendienteEditar">PENDIENTE</label>
+                  <label for="r_pendienteEditar">Pendiente</label>
               </div>
 
               <!-- ENTRADA PARA LA DIREECION-->
@@ -554,7 +575,7 @@ MODAL EDITAR CLIENTE
               <!-- ENTRADA PARA LA DIREECION-->
               <div class="col-lg-4">            
                 <div class="form-group">
-                <label for="browser" class="form-label">Direccion :</label>
+                <label for="browser" class="form-label">Datos de recogida :</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-home"></i></span>
                     <textarea  type="text" rows="4" class="form-control newDireccionEditar" name="newDireccionEditar" placeholder="Ingresar Direccion" required></textarea>
@@ -565,7 +586,7 @@ MODAL EDITAR CLIENTE
             <!-- ENTRADA PARA LA DIREECION DESTINO-->
               <div class="col-lg-4">            
                 <div class="form-group">
-                <label for="browser" class="form-label">Direccion destino:</label>
+                <label for="browser" class="form-label">Datos de destino:</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-home"></i></span>
                     <textarea  type="text" rows="4" class="form-control direccionDestinoEditar" name="direccionDestinoEditar" placeholder="Ingresar Direccion" required></textarea>
@@ -589,7 +610,7 @@ MODAL EDITAR CLIENTE
                 <div class="form-group">
                   <div class="input-group">
                   <label for="browser" class="form-label">Valor delivery:</label>
-                    <input type="number" class="form-control input-lg valorDomicilioEditar" name="valorDomicilioEditar" placeholder="Valor domicilio" required>
+                    <input type="text" class="form-control input-lg valorDomicilioEditar" name="valorDomicilioEditar" placeholder="Valor domicilio" required>
                   </div>
                 </div>
               </div>

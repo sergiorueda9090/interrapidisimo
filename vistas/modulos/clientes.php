@@ -1,3 +1,16 @@
+<style>
+  .userContainer{
+    display:none;
+  }
+
+  .userContainerEditar{
+    display:none;
+  }
+
+  .btnAddUserClienteEditar{
+    display:none;
+  }
+</style>
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -200,6 +213,77 @@ MODAL AGREGAR CLIENTE
               </div>
 
             </div>
+            <!--=====================================
+              START USERS
+            ======================================-->
+            <div class="row mb-3">
+                <div class="col-lg-12">
+                  <button type="button" class="btn btn-new-primary btnShowUser">Agregar Usuario</button> 
+                </div>
+            </div>
+            <div class="userContainer">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Nombre</label>
+                      <input type="text" class="form-control nombreUsuarioCliente" name="nombreUsuarioCliente" id="nombreUsuarioCliente" require>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Telefono 1</label>
+                      <input type="text" class="form-control telefono1UsuarioCliente" name="telefono1UsuarioCliente" id="telefono1UsuarioCliente" require>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Telefono 2</label>
+                        <input type="text" class="form-control telefono2UsuarioCliente" name="telefono2UsuarioCliente" id="telefono2UsuarioCliente" require>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Direccion</label>
+                          <textarea class="form-control direccionUsuarioCliente" name="direccionUsuarioCliente" id="direccionUsuarioCliente" rows="3"></textarea>
+                      </div>
+                  </div>
+
+  
+                    <input type="hidden" class="form-control infoUsuarioCliente" name="infoUsuarioCliente" id="infoUsuarioCliente" require>
+     
+
+                  <div class="col-lg-12">
+                    <button type="button" class="btn btn-new-primary btn-block btnAddUser">Agregar</button>
+                    <button type="button" class="btn btn-block btn-warning btnAddUserEditar">Editar</button>
+                  </div>
+                  
+                  </div>
+
+                  <div class="row mt-3">
+                  <div class="col-lg-12 mt-3">
+                    <table class="table table-striped mt-3 tableCustomerUsers">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Telefono 1</th>
+                          <th scope="col">Telefono 2</th>
+                          <th scope="col">Direccion</th>
+                          <th scope="col">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+            </div>
+            <!--=====================================
+              END USERS
+            ======================================-->
 
           </div>
         </div>
@@ -333,6 +417,78 @@ MODAL EDITAR CLIENTE
               </div>
 
             </div>
+
+            <!--=====================================
+              START USERS
+            ======================================-->
+            <div class="row mb-3">
+                <div class="col-lg-12">
+                  <button type="button" class="btn btn-new-primary btnShowUserEditar">Editar Usuario</button> 
+                </div>
+            </div>
+            <div class="userContainerEditar">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Nombre</label>
+                      <input type="text" class="form-control nombreUsuarioClienteEditar" name="nombreUsuarioClienteEditar" id="nombreUsuarioClienteEditar" require>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Telefono 1</label>
+                      <input type="text" class="form-control telefono1UsuarioClienteEditar" name="telefono1UsuarioClienteEditar" id="telefono1UsuarioClienteEditar" require>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Telefono 2</label>
+                        <input type="text" class="form-control telefono2UsuarioClienteEditar" name="telefono2UsuarioClienteEditar" id="telefono2UsuarioClienteEditar" require>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Direccion</label>
+                          <textarea class="form-control direccionUsuarioClienteEditar" name="direccionUsuarioClienteEditar" id="direccionUsuarioClienteEditar" rows="3"></textarea>
+                      </div>
+                  </div>
+
+
+                  <input type="hidden" class="form-control infoUsuarioClienteEditar" name="infoUsuarioClienteEditar" id="infoUsuarioClienteEditar" require>
+
+
+                  <div class="col-lg-12">
+                    <button type="button" class="btn btn-new-primary btn-block btnAddUserClienteAgregar">Agregar</button>
+                    <button type="button" class="btn btn-danger btn-block btnAddUserClienteEditar">Editar</button>
+                  </div>
+                  
+                  </div>
+
+                  <div class="row mt-3">
+                  <div class="col-lg-12 mt-3">
+                    <table class="table table-striped mt-3 tableCustomerUsersEditar">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Telefono 1</th>
+                          <th scope="col">Telefono 2</th>
+                          <th scope="col">Direccion</th>
+                          <th scope="col">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+            </div>
+            <!--=====================================
+              END USERS
+            ======================================-->
 
           </div>
         </div>

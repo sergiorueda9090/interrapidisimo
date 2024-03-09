@@ -16,6 +16,7 @@ class AjaxDelivery{
 	public $idCustomer;
 	public $idDelivery;
 	public $money;
+	public $idCustomerUser;
 
 	public function ajaxEditarCliente(){
 
@@ -48,6 +49,12 @@ class AjaxDelivery{
 
 	}
 
+	public function ajaxSelectUsuarioClientes(){
+		$id 		= $this->idCustomerUser;
+		$respuesta = DeliveryCTR::ctrShowUserCustomers($id);
+		echo json_encode($respuesta);
+	}
+
 
 }
 
@@ -71,6 +78,12 @@ if(isset($_POST["iddeliveryEditar"])){
 	$editMoneyDelivery->idDelivery 	= $_POST["iddeliveryEditar"];
 	$editMoneyDelivery->money 		= $_POST["money"];
 	$editMoneyDelivery->ajaxEditMoneyDelivery();
+}
+
+if(isset($_POST["idCustomerUser"])){
+	$showUserClientes  = new AjaxDelivery();
+	$showUserClientes->idCustomerUser 	= $_POST["idCustomerUser"];
+	$showUserClientes->ajaxSelectUsuarioClientes();
 }
 
 ?>

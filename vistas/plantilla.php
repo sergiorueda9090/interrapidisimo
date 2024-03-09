@@ -161,6 +161,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "delivery" ||
          $_GET["ruta"] == "reportes" ||
+         $_GET["ruta"] == "telegram" ||
          $_GET["ruta"] == "asignarDomicilio" ||
          $_GET["ruta"] == "zona" ||
          $_GET["ruta"] == "domicilio" ||

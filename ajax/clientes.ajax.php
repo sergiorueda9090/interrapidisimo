@@ -9,6 +9,7 @@ class AjaxClientes{
 	=============================================*/
 
 	public $idCliente;
+	public $idUsuarioCliente;
 
 	public function ajaxEditarCliente(){
 
@@ -22,6 +23,16 @@ class AjaxClientes{
 
 	}
 
+	public function ajaxEditarClienteUsuario(){
+  
+		$valor = $this->idUsuarioCliente;
+  
+		$respuesta = ClienteCtr::ctrMostrarClientesUsuarios($valor);
+  
+		  echo json_encode($respuesta);
+  
+	}
+
 
 }
 
@@ -32,6 +43,10 @@ if(isset($_POST["idCliente"])){
 	$editar = new AjaxClientes();
 	$editar -> idCliente = $_POST["idCliente"];
 	$editar -> ajaxEditarCliente();
+}else if(isset($_POST["idUsuario"])){
+	$editar = new AjaxClientes();
+	$editar -> idUsuarioCliente = $_POST["idUsuario"];
+	$editar -> ajaxEditarClienteUsuario();
 }
 
 ?>

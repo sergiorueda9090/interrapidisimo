@@ -22,7 +22,7 @@
 
     <h1>
 
-     Reportes Domiciliarios
+     Reportes Mensajeros
 
     </h1>
 
@@ -30,7 +30,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active"> Reportes Domiciliarios</li>
+      <li class="active"> Reportes Mensajeros</li>
 
     </ol>
 
@@ -48,21 +48,66 @@
 
       <div class="box-body">
 
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+      <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="fechaInicioInput">Fecha de inicio</label>
+                <input type="date" id="fechaInicioInput" class="fechaInput form-control" placeholder="Fecha de inicio">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="fechaFinInput">Fecha de fin</label>
+                <input type="date" id="fechaFinInput" class="fechaInput form-control" placeholder="Fecha de fin">
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out 1</label>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                        <label class="form-check-label" for="exampleCheck2">Check me out 2</label>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                        <label class="form-check-label" for="exampleCheck3">Check me out 3</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+        <button type="button" class="btn btn-primary btn-block">Filtrar</button>
+        </div>
+
+
+    </div>
+        <br>
+
+
+       <table class="table table-bordered table-striped dt-responsive tablas mt-4" width="100%">
 
         <thead>
 
          <tr>
            <th style="width:10px">#</th>
-           <th>Nombre Domiciliario</th>
-           <th>Nombre Cliente</th>
+           <th>Mensajero</th>
            <th>Cliente</th>
+           <th>Usuario</th>
+           <th>Tipo de pago</th>
            <th>Metodo de pago</th>
-           <th>Direccion 1</th>
-           <th>Direccion 2</th>
-           <th>Direccion 3</th>
-           <th>Proceso</th>
-           <th>Valor domicilio</th>
+           <th>Estado del dinero</th>
+           <th>Nota</th>
+           <th>Valor</th>
            <th>Fecha</th>
            <th>Acciones</th>
          </tr>
@@ -84,11 +129,10 @@
                   <td>'.$value["nombre"].'</td>
                   <td>'.$value["nombreCliente"].'</td>
                   <td>'.$value["cliente"].'</td>
+                  <td>'.$value["type"].'</td>
                   <td>'.$value["selectPayMethod"].'</td>
-                  <td>'.$value["pickupAddress"].'</td>
-                  <td>'.$value["newAddress"].'</td>
-                  <td>'.$value["destinationAddress"].'</td>
                   <td>'.$value["paymentProcess"].'</td>
+                  <td>'.$value["note"].'</td>
                   <td>'.$value["deliveryPraci"].'</td>
                   <td>'.$value["dateCrate"].'</td>';
           echo '<td>

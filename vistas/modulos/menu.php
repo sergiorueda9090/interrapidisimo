@@ -48,10 +48,19 @@
 
 				<a href="reportes" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
 				<img src="vistas/img/iconos/reporte.png" alt="" style="width: 100%; height: auto;">
-					<span>reportes</span>
+					<span>Reportes</span>
 				</a>
 
-				</li>
+			</li>
+
+			<li>
+
+				<a href="telegram" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
+				<img src="vistas/img/iconos/telegram.png" alt="" style="width: 100%; height: auto;">
+					<span>Telegram</span>
+				</a>
+
+			</li>
 
 			<!--<li>
 

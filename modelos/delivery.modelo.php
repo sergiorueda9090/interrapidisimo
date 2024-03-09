@@ -55,7 +55,7 @@ class DeliveryMdl{
    =============================================*/
    static public function mdlCreateDelivery($table, $datos){
 
-    $stmt = Conexion::conectar()->prepare("INSERT INTO $table(idCustomer,idDomiciliary,type,typeOfPay,selectPayMethod,pickupAddress,newAddress,destinationAddress,note,deliveryPraci,paymentProcess,userCreate) VALUES (:idCustomer,:idDomiciliary,:type,:typeOfPay,:selectPayMethod,:pickupAddress,:newAddress,:destinationAddress,:note,:deliveryPraci,:paymentProcess,:userCreate)");
+    $stmt = Conexion::conectar()->prepare("INSERT INTO $table(idCustomer,idDomiciliary,type,typeOfPay,selectPayMethod,pickupAddress,newAddress,destinationAddress,note,deliveryPraci,paymentProcess,userCreate,idUserCustomer) VALUES (:idCustomer,:idDomiciliary,:type,:typeOfPay,:selectPayMethod,:pickupAddress,:newAddress,:destinationAddress,:note,:deliveryPraci,:paymentProcess,:userCreate,:idUserCustomer)");
 
       $stmt->bindParam(":idCustomer",         $datos["idCustomer"],           PDO::PARAM_INT);
       $stmt->bindParam(":idDomiciliary",      $datos["idDomiciliary"],        PDO::PARAM_INT);
@@ -69,6 +69,7 @@ class DeliveryMdl{
       $stmt->bindParam(":deliveryPraci",      $datos["deliveryPraci"],        PDO::PARAM_STR);
       $stmt->bindParam(":paymentProcess",     $datos["money"],                PDO::PARAM_STR);
       $stmt->bindParam(":userCreate",         $datos["idUser"],               PDO::PARAM_INT);
+      $stmt->bindParam(":idUserCustomer",     $datos["idUserCustomer"],       PDO::PARAM_STR);
 
     if($stmt->execute()){
 
@@ -91,7 +92,7 @@ class DeliveryMdl{
    =============================================*/
    static public function mdlEditarDelivery($table, $datos){
 
-    $stmt = Conexion::conectar()->prepare("UPDATE $table SET idDomiciliary = :idDomiciliary, type = :type, typeOfPay = :typeOfPay, selectPayMethod = :selectPayMethod, pickupAddress = :pickupAddress, newAddress = :newAddress, destinationAddress = :destinationAddress, note = :note, deliveryPraci = :deliveryPraci, paymentProcess = :paymentProcess, userCreate = :userCreate WHERE id = :id");
+    $stmt = Conexion::conectar()->prepare("UPDATE $table SET idDomiciliary = :idDomiciliary, type = :type, typeOfPay = :typeOfPay, selectPayMethod = :selectPayMethod, pickupAddress = :pickupAddress, newAddress = :newAddress, destinationAddress = :destinationAddress, note = :note, deliveryPraci = :deliveryPraci, paymentProcess = :paymentProcess, userCreate = :userCreate, idUserCustomer = :idUserCustomer WHERE id = :id");
 
     $stmt->bindParam(":idDomiciliary",      $datos["idDomiciliary"],        PDO::PARAM_INT);
     $stmt->bindParam(":type",               $datos["type"],                 PDO::PARAM_STR);
@@ -105,6 +106,7 @@ class DeliveryMdl{
     $stmt->bindParam(":paymentProcess",     $datos["money"],                PDO::PARAM_STR);
     $stmt->bindParam(":userCreate",         $datos["idUser"],               PDO::PARAM_INT);
     $stmt->bindParam(":id",                 $datos["id"],                   PDO::PARAM_INT);
+    $stmt->bindParam(":idUserCustomer",     $datos["idUserCustomer"],       PDO::PARAM_STR);
 
     if($stmt->execute()){
         return "ok";
@@ -147,7 +149,6 @@ class DeliveryMdl{
    static public function mdlEditMoneyDelivery($table, $id, $moneyEdita){
 
     $stmt = Conexion::conectar()->prepare("UPDATE $table SET  paymentProcess = :paymentProcess WHERE id = :id");
-
     $stmt->bindParam(":id",             $id,          PDO::PARAM_INT);
     $stmt->bindParam(":paymentProcess", $moneyEdita,  PDO::PARAM_STR);
 
@@ -161,5 +162,16 @@ class DeliveryMdl{
     $stmt = null;
 }
 
+	/*=============================================
+	SHOW USERS CUSTOMER
+	=============================================*/
+  static public function mdlShowUserCustomers($table, $id){
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM $table WHERE idUsuario = :id");
+    $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+    $stmt -> execute();
+    return $stmt->fetchAll();
+    $stmt -> close();
+    $stmt = null;
+}
 
 }

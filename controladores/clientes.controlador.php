@@ -17,7 +17,22 @@ class ClienteCtr{
 
       $respuesta = ClienteMdl::mdlCrearCliente($tabla,$datos);
 
-      if($respuesta == "ok"){
+      if($respuesta){
+
+        if(isset($_POST["infoUsuarioCliente"])){
+
+          $usuarios = json_decode($_POST["infoUsuarioCliente"], true);
+
+          foreach($usuarios as $key => $user){
+              $idCliente = $respuesta;
+              $nombre    = $user['nombre'];
+              $telefono1 = $user['telefono1'];
+              $telefono2 = $user['telefono2'];
+              $direccion = $user['direccion'];
+              $respuestaClienteUsuario = ClienteMdl::mdlCrearClienteUsuario($idCliente,$nombre,$telefono1,$telefono2,$direccion);
+          }
+
+        }
 
         echo'<script>
 
@@ -67,6 +82,12 @@ class ClienteCtr{
     return $respuesta;
   }
 
+  static public function ctrMostrarClientesUsuarios($valor){
+    $tabla = "clientesusuarios";
+    $respuesta = ClienteMdl::mdlMostrarClientesUsuarios($tabla, $item="idUsuario", $valor);
+    return $respuesta;
+  }
+
   static public function ctrEditarCliente(){
 
     if(isset($_POST["clienteEditar"])){
@@ -84,6 +105,27 @@ class ClienteCtr{
       $respuesta = ClienteMdl::mdlEditarCliente($tabla,$datos);
 
       if($respuesta == "ok"){
+
+        if(isset($_POST["infoUsuarioClienteEditar"])){
+
+          $respuestaDelete = ClienteMdl::mdlBorrarClienteUsuario($_POST["id"]);
+
+          if($respuestaDelete){
+
+            $usuarios = json_decode($_POST["infoUsuarioClienteEditar"], true);
+
+            foreach($usuarios as $key => $user){
+                $idCliente = $_POST["id"];
+                $nombre    = $user['nombre'];
+                $telefono1 = $user['telefono1'];
+                $telefono2 = $user['telefono2'];
+                $direccion = $user['direccion'];
+                $respuestaClienteUsuario = ClienteMdl::mdlCrearClienteUsuario($idCliente,$nombre,$telefono1,$telefono2,$direccion);
+            }
+
+          }
+
+        }
 
         echo'<script>
 

@@ -26,7 +26,8 @@ class RportDeliveryMdl{
 			$stmt = Conexion::conectar()->prepare("SELECT d.id, u.id as idUsuario, 
                                               c.nombre as nombreCliente, c.cliente,
                                               u.nombre, d.selectPayMethod, d.pickupAddress, d.newAddress,
-                                              d.destinationAddress, d.deliveryPraci, d.paymentProcess, d.dateCrate 
+                                              d.destinationAddress, d.deliveryPraci, d.paymentProcess,
+                                              d.dateCrate,d.note,d.type
                                               FROM delviery AS d INNER JOIN usuarios u on u.id = d.idDomiciliary
                                               INNER JOIN clientes c on c.id = d.idCustomer");
 

@@ -72,6 +72,7 @@ class DeliveryCTR{
             $valorDomicilio   = $_POST['valorDomicilio']    ?? null;
             $money            = $_POST['estado']            ?? null;
             $idUser           = $_POST['idUser']            ?? null;
+            $idUserCustomer   = $_POST['nameCliente']       ?? 0;
 
             if (!empty($customerName) && !empty($browser) && !empty($tipo) && !empty($tipoPagar) && !empty($direccionCliente) && !empty($direccionDestino) && !empty($nota) && !empty($valorDomicilio) && !empty($selectPayMethod)) {
                 
@@ -88,7 +89,8 @@ class DeliveryCTR{
                               "note"                => $nota,
                               "deliveryPraci"       => $valorDomicilio,
                               "money"               => $money,
-                              "idUser"              => $idUser);
+                              "idUser"              => $idUser,
+                              "idUserCustomer"      => $idUserCustomer);
                 
                 $response = DeliveryMdl::mdlCreateDelivery($table, $datos);
 
@@ -148,7 +150,7 @@ class DeliveryCTR{
 	=============================================*/
     static public function ctrEditarDelivery(){
 
-        if(isset($_POST['customerNameEditar'])){
+        if(isset($_POST['idDeliveryEditar'])){
 
             $customerName           = $_POST['customerNameEditar']      ?? null;
             $browser                = $_POST['browserEditar']           ?? null;
@@ -163,6 +165,7 @@ class DeliveryCTR{
             $money                  = $_POST['estadoEditar']            ?? null;
             $idUser                 = $_POST['idUserEditar']            ?? null;
             $idDelivery             = $_POST['idDeliveryEditar']        ?? null;
+            $idUserCustomer         = $_POST['nameClienteEditar']       ?? 0;
 
             if (!empty($idDelivery)) {
                 
@@ -181,7 +184,8 @@ class DeliveryCTR{
                               "note"                => $nota,
                               "deliveryPraci"       => $valorDomicilio,
                               "money"               => $money,
-                              "idUser"              => $idUser);
+                              "idUser"              => $idUser,
+                              "idUserCustomer"      => $idUserCustomer);
                 
                 $response = DeliveryMdl::mdlEditarDelivery($table, $datos);
 
@@ -305,5 +309,15 @@ class DeliveryCTR{
 
         return $response;
 
+    }
+
+
+    /*=============================================
+	SHOW USERS
+	=============================================*/
+    static public function ctrShowUserCustomers($id){
+        $table = "clientesusuarios";
+        $response = DeliveryMdl::mdlShowUserCustomers($table, $id);
+        return $response;
     }
 }
