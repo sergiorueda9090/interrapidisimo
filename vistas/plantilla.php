@@ -165,7 +165,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "setWebHook" ||
          $_GET["ruta"] == "getwebhookinfo" ||
          $_GET["ruta"] == "testTelegram" ||
-         $_GET["ruta"] == "telegramIndex" ||
+         //$_GET["ruta"] == "telegramIndex" ||
          $_GET["ruta"] == "asignarDomicilio" ||
          $_GET["ruta"] == "zona" ||
          $_GET["ruta"] == "domicilio" ||
