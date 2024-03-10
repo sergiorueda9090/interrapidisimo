@@ -2,7 +2,7 @@
 <?php
 
 include "config.php";
-$webHookUrl = "https://470web.com/telegramIndex";
+$webHookUrl = "https://470web.com/telegramIndex.php";
 $apiUrl = "https://api.telegram.org/bot{$BOT_TOKEN}/setWebhook?url={$webHookUrl}";
 $response = file_get_contents($apiUrl);
 echo $response;
