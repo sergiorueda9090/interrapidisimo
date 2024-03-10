@@ -54,3 +54,77 @@ $(document).on("click", ".btnShowReportDelivery", function(){
 
     
 });
+
+
+$(document).on('click','.filterReport',function(){
+    
+    console.log("CALL THIS");
+
+    let fechaInicio  = $(".fechaInicio").val();
+    let fechaFin     = $(".fechaFin").val();
+    let mensajero    = $(".mensajero").val();
+    let cliente      = $(".cliente").val();
+
+    
+    let datos = new FormData();
+
+    if (fechaInicio !== '') {
+        datos.append("fechaInicio", fechaInicio);
+    }
+    if (fechaFin !== '') {
+        datos.append("fechaFin", fechaFin);
+    }
+    if (mensajero !== '') {
+        datos.append("mensajero", mensajero);
+    }
+    if (cliente !== '') {
+        datos.append("cliente", cliente);
+    }
+    $.ajax({
+		url:"ajax/reportDelivery.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+
+            console.log("respuesta ",respuesta);
+            let tabla = $("#tableMain");
+            tabla.empty();
+            if(respuesta && respuesta.length > 0) {
+                let numerico = 1;
+                respuesta.forEach(function(filtro) {
+                    let fila = "<tr>" +
+                        "<td>" + (numerico++) + "</td>" +
+                        "<td>" + filtro.nombre + "</td>" +
+                        "<td>" + filtro.nombreCliente + "</td>" +
+                        "<td>" + filtro.cliente + "</td>" +
+                        "<td>" + filtro.type + "</td>" +
+                        "<td>" + filtro.selectPayMethod + "</td>" +
+                        "<td>" + filtro.paymentProcess + "</td>" +
+                        "<td>" + filtro.note + "</td>" +
+                        "<td>" + filtro.deliveryPraci + "</td>" +
+                        "<td>" + filtro.dateCrate + "</td>" +
+                        "<td><div class='btn-group'>" + 
+                        "<button class='btn btn-warning btnShowReportDelivery' idUsuario='" + filtro.idUsuario + "' data-toggle='modal' data-target='#exampleModal'><i class='fa fa-eye'></i></button>" +
+                        "</div></td>" +
+                        "</tr>";
+                    tabla.append(fila);
+                });
+                numerico = 1;
+            } else {
+                // Si no hay información en la respuesta, agregar una fila indicando que no se encontró información
+                let filaVacia = "<tr><td colspan='11'>No se encontró información en el filtro.</td></tr>";
+                tabla.append(filaVacia);
+            }
+		}
+	});
+
+})
+
+
+$(document).on('click', '.downloadPageExcel', function() {
+    window.location.href = 'reportes/export_excel.php';
+});

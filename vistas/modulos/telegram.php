@@ -1,12 +1,23 @@
+
+
+
 <div class="content-wrapper">
 
   <section class="content-header">
 
     <h1>
 
-      Administrar Telegram
-
+      Administrar Telegram #7022150351:AAGhcgNl6YY2CAupmhyXUw4cGcnUSPJk0Vg
+      #repidisimo_bot
+  
     </h1>
+
+    <h3>
+      <?php 
+        require "botinfo.php";
+      ?>
+    </h3>
+    
 
     <ol class="breadcrumb">
 
