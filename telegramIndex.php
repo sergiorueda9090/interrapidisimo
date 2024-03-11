@@ -47,7 +47,7 @@ function guardarChat($chatData) {
     
     // Preparar la declaración
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isss", $chatId, $firstName, $lastName);
+    $stmt->bind_param("iss", $chatId, $firstName, $lastName);
 
     // Ejecutar la consulta SQL
     if ($stmt->execute()) {
