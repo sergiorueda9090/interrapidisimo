@@ -9,7 +9,7 @@ fclose($log);
 
 $getData = json_decode($data, true);
 $userId = 2027398274;//$getData['message']['from']['id'];
-$botMessage = "Hi, there";
+$botMessage = "Hi, there tow";
 
 // Construir los parámetros de la solicitud
 $parameters = array(
