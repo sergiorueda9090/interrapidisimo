@@ -40,14 +40,14 @@ function guardarChat($chatData) {
     $chatId = $chatData['id'];
     $firstName = $chatData['first_name'];
     $lastName = isset($chatData['last_name']) ? $chatData['last_name'] : '';
-    $username = isset($chatData['username']) ? $chatData['username'] : '';
+
 
     // Preparar la consulta SQL para insertar los datos del chat en la tabla 'chats'
-    $sql = "INSERT INTO telegram (chat_id, first_name, last_name, username) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO telegram (chat_id, first_name, last_name) VALUES (?, ?, ?)";
     
     // Preparar la declaración
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isss", $chatId, $firstName, $lastName, $username);
+    $stmt->bind_param("isss", $chatId, $firstName, $lastName);
 
     // Ejecutar la consulta SQL
     if ($stmt->execute()) {
