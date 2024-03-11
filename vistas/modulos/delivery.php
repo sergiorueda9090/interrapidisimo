@@ -104,13 +104,15 @@
                   <td>'.$value["pickupAddress"].'</td>
                   <td>'.$value["destinationAddress"].'</td>
                   <td>'.$value["note"].'</td>
-                  <td>'.$value["deliveryPraci"].'</td>
-                  <td>'.$value["paymentProcess"].'</td>
-                  <td>'.$value["userCreate"].'</td>
-                  <td>'.$value["dateCrate"].'</td>'
+                  <td>'.$value["deliveryPraci"].'</td>';
+                  if($value["paymentProcess"] == "enproceso"){
+                    echo "<td>En proceso</td>";
+                  }else{
+                    echo '<td>'.$value['paymentProcess'].'</td>';
+                  }
+                  echo '<td>'.$value["userCreate"].'</td>
+                        <td>'.$value["dateCrate"].'</td>'
                   ;
-
-
           echo '<td>
 
                     <div class="btn-group">
