@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+//include "config.php";
 $data = file_get_contents('php://input');
 $logFile = "webhooksenddata.json";
 $log = fopen($logFile, "a");
@@ -9,7 +9,7 @@ fclose($log);
 
 $getData = json_decode($data, true);
 $userId = 2027398274;//$getData['message']['from']['id'];
-$botMessage = "Hi, there new";
+$botMessage = "Hi, there";
 
 // Construir los parámetros de la solicitud
 $parameters = array(
@@ -19,7 +19,7 @@ $parameters = array(
 );
 
 // URL de la API de Telegram para enviar mensajes
-$telegramApiUrl = "https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"; // Reemplaza 'TU_TOKEN' con el token de tu bot
+$telegramApiUrl = "https://api.telegram.org/bot7022150351:AAGhcgNl6YY2CAupmhyXUw4cGcnUSPJk0Vg/sendMessage"; // Reemplaza 'TU_TOKEN' con el token de tu bot
 
 // Inicializar cURL
 $curl = curl_init($telegramApiUrl);
