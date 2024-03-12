@@ -27,9 +27,10 @@ class RportDeliveryMdl{
                                               c.nombre as nombreCliente, c.cliente,
                                               u.nombre, d.selectPayMethod, d.pickupAddress, d.newAddress,
                                               d.destinationAddress, d.deliveryPraci, d.paymentProcess,
-                                              d.dateCrate,d.note,d.type
+                                              d.dateCrate,d.note,d.type, cu.nombre as cunombre
                                               FROM delviery AS d INNER JOIN usuarios u on u.id = d.idDomiciliary
-                                              INNER JOIN clientes c on c.id = d.idCustomer");
+                                              INNER JOIN clientes c on c.id = d.idCustomer
+                                              LEFT JOIN clientesusuarios cu ON cu.id = d.idUserCustomer");
 
 			$stmt -> execute();
 

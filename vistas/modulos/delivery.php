@@ -66,6 +66,7 @@
 
            <th style="width:10px">#</th>
            <th>Cliente</th>
+           <th>Usuario</th>
            <th>Telefono</th>
            <th>Mensajero</th>
            <th>Tipo</th>
@@ -90,17 +91,21 @@
         $valor = null;
 
         $deliverys = DeliveryCTR::ctrListDeliverys($item, $valor);
-      
 
        foreach ($deliverys as $key => $value){
 
           echo ' <tr>
                   <td>'.($key+1).'</td>
                   <td>'.$value["nombre"].'</td>
-                  <td>'.$value["telefono1"].'</td>
-                  <td>'.$value["nombreDomiciliario"].'</td>
-                  <td>'.$value["type"].'</td>
-                  <td>'.$value["typeOfPay"].'</td>
+                  <td>'.$value["cunombre"].'</td>';
+                  if(isset($value['cutelefono1'])){
+                    echo'<td>'.$value["cutelefono1"].'</td>';
+                  }else{
+                    echo'<td>'.$value["telefono1"].'</td>';
+                  }
+                  echo '<td>'.$value["nombreDomiciliario"].'</td>
+                  <td>'.ucfirst(strtolower($value["type"])).'</td>
+                  <td>'.ucfirst(strtolower($value["typeOfPay"])).'</td>
                   <td>'.$value["pickupAddress"].'</td>
                   <td>'.$value["destinationAddress"].'</td>
                   <td>'.$value["note"].'</td>

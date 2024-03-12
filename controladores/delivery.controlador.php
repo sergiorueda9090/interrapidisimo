@@ -91,7 +91,7 @@ class DeliveryCTR{
                               "pickupAddress"       => $direccionCliente,
                               "newAddress"          => $direccionNew,
                               "destinationAddress"  => $direccionDestino,
-                              "note"                => $nota,
+                              "note"                => $nota ?? "",
                               "deliveryPraci"       => $valorDomicilio,
                               "money"               => $money,
                               "idUser"              => $idUser,

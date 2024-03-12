@@ -22,9 +22,10 @@ class DeliveryMdl{
 		}else{
 
 			$stmt = Conexion::conectar()->prepare("SELECT $table.*, clientes.nombre, clientes.telefono1, clientes.telefono2, clientes.direccion,
-                                            usuarios.nombre as nombreDomiciliario FROM $table 
+                                            usuarios.nombre as nombreDomiciliario, cu.nombre as cunombre, cu.telefono1 as cutelefono1 FROM $table 
                                             INNER JOIN clientes ON $table.idCustomer = clientes.id
-                                            INNER JOIN usuarios ON $table.idDomiciliary = usuarios.id");
+                                            INNER JOIN usuarios ON $table.idDomiciliary = usuarios.id
+                                            LEFT JOIN clientesusuarios cu ON cu.id = $table.idUserCustomer");
 
 			$stmt -> execute();
 
