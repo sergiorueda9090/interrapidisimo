@@ -13,7 +13,8 @@ class ClienteCtr{
                      "nombre"     => $_POST["nombreCliente"],
                      "telefono1"  => $_POST["telefonoCliente1"],
                      "telefono2"  => $_POST["telefonoCliente2"],
-                     "direccion"  => $_POST["direccionCliente"]);
+                     "direccion"  => $_POST["direccionCliente"],
+                     "tipo"       => $_POST["tipo"]);
 
       $respuesta = ClienteMdl::mdlCrearCliente($tabla,$datos);
 
@@ -100,7 +101,8 @@ class ClienteCtr{
                      "telefono2"  => $_POST["telefonoCliente2"],
                      "tipo"       => $_POST["tipo"],
                      "direccion"  => $_POST["direccionCliente"],
-                     "id"         => $_POST["id"]);
+                     "id"         => $_POST["id"],
+                     "tipo"       => $_POST["tipo"]);
 
       $respuesta = ClienteMdl::mdlEditarCliente($tabla,$datos);
 

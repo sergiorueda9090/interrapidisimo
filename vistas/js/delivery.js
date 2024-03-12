@@ -40,10 +40,24 @@ $(document).on("input", ".customers", async function(){
         $(".direccionCliente").val(respuesta["direccion"]);
         $(".telefonoCliente1").val(respuesta["telefono1"]);
         $(".telefonoCliente2").val(respuesta["telefono2"]);
-        $(".tipo").val("CONTADO");
+        $(".tipo").val(respuesta["tipo"]);
         //$(".tipoPagar").val("CONTADO");
-        $(".tipoEditar").val("CREDITO");
+        $(".tipoEditar").val(respuesta["tipo"]);
         $(".idCustomer").val(respuesta["id"]);
+        
+        $(".tipoPagarEditar").val(respuesta["tipo"]);
+        $(".tipoPagar").val(respuesta["tipo"]);
+
+        if(respuesta["tipo"] === "CONTADO"){
+
+          $(".selectPayMethod").css({"display":"block"});
+    
+        }else{
+    
+          $(".selectPayMethod").css({"display":"none"}) ;
+    
+        }
+
     } catch (error) {
         // Oculta el indicador de carga si hay un error en la solicitud
         $('.loader').css({"display":"hide"});

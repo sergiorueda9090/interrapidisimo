@@ -27,7 +27,7 @@ $(document).on('click','.btnEditarClientes',function(){
       $(".nombreEditar").val(respuesta["nombre"]);
       $(".telefonoEditar1").val(respuesta["telefono1"]);
       $(".telefonoEditar2").val(respuesta["telefono2"]);
-      $(".tipoEditar").val("CREDITO");
+      $(".tipoEditar").val(respuesta["tipo"]);
       $(".direccionEditar").val(respuesta["direccion"]);
       $(".idEditar").val(respuesta["id"]);
 		}

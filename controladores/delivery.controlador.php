@@ -59,12 +59,17 @@ class DeliveryCTR{
     static public function ctrCreateDelivery(){
 
         if(isset($_POST['customerName'])){
-
             $customerName     = $_POST['customerName']      ?? null;
             $browser          = $_POST['browser']           ?? null;
             $tipo             = $_POST['tipo']              ?? null;
             $tipoPagar        = $_POST['tipoPagar']         ?? null;
-            $selectPayMethod  = $_POST['r_selectPayMethod'] ?? null;
+
+            if($tipoPagar == "CREDITO"){
+                $selectPayMethod  = "CREDITO";
+            }else{
+                $selectPayMethod  = $_POST['r_selectPayMethod'] ?? null;
+            }
+
             $direccionCliente = $_POST['direccionCliente']  ?? null;
             $direccionNew     = $_POST['direccionNew']      ?? null;
             $direccionDestino = $_POST['direccionDestino']  ?? null;
@@ -74,7 +79,7 @@ class DeliveryCTR{
             $idUser           = $_POST['idUser']            ?? null;
             $idUserCustomer   = $_POST['nameCliente']       ?? 0;
 
-            if (!empty($customerName) && !empty($browser) && !empty($tipo) && !empty($tipoPagar) && !empty($direccionCliente) && !empty($direccionDestino) && !empty($nota) && !empty($valorDomicilio) && !empty($selectPayMethod)) {
+            if (!empty($money) && !empty($customerName) && !empty($browser) && !empty($tipo) && !empty($tipoPagar) && !empty($direccionCliente) && !empty($direccionDestino) && !empty($valorDomicilio) && !empty($selectPayMethod)) {
                 
                 $table = "delviery";
 
@@ -137,8 +142,51 @@ class DeliveryCTR{
 
 
             } else {
-                // Alguna de las variables está vacía o no está definida
-                // Maneja el caso en consecuencia
+                $variablesFaltantes = array();
+                if (empty($customerName)) {
+                    $variablesFaltantes[] = "Nombre del cliente";
+                }
+                if (empty($browser)) {
+                    $variablesFaltantes[] = "Navegador";
+                }
+                if (empty($tipo)) {
+                    $variablesFaltantes[] = "Tipo";
+                }
+                if (empty($tipoPagar)) {
+                    $variablesFaltantes[] = "Tipo de Pago";
+                }
+                if (empty($direccionCliente)) {
+                    $variablesFaltantes[] = "Dirección del cliente";
+                }
+                if (empty($direccionDestino)) {
+                    $variablesFaltantes[] = "Dirección de destino";
+                }
+
+                if (empty($valorDomicilio)) {
+                    $variablesFaltantes[] = "Valor del domicilio";
+                }
+                if (empty($selectPayMethod)) {
+                    $variablesFaltantes[] = "Método de Pago";
+                }
+                if (empty($money)) {
+                    $variablesFaltantes[] = "Estado actual del dinero";
+                }
+
+                if (!empty($variablesFaltantes)) {
+                    $mensajeError = "Faltan los siguientes campos obligatorios: " . implode(", ", $variablesFaltantes);
+                    echo '<script>
+                            swal({
+                                type: "error",
+                                title: "'.$mensajeError.'",
+                                showConfirmButton: true,
+                                confirmButtonText: "Cerrar"
+                            }).then(function(result){
+                                if (result.value) {
+                                    window.location = "delivery";
+                                }
+                            })
+                        </script>';
+                }
             }
 
         }

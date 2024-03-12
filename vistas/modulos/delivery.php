@@ -182,7 +182,7 @@ MODAL AGREGAR CLIENTE
                   <div class="input-group">
                   <label for="customers" class="form-label">Selecciona el cliente:</label>
                   <select class="custom-select customers form-control input-lg" name="customerName" id="customers" required>
-                    <option selected>Selecciona el cliente</option>
+                    <option value="">Selecciona el cliente</option>
                     <?php
                       foreach($customer as $key => $values){
                         echo '<option  value="'.$values['id'].'">'.$values['cliente'].'</option>';
@@ -200,7 +200,7 @@ MODAL AGREGAR CLIENTE
                   <div class="input-group">
                   <label for="browser" class="form-label">Selecciona el Mensajero:</label>
                   <select class="custom-select browser form-control input-lg browser"  name="browser" id="browser" required>
-                    <option selected>Selecciona el Mensajero</option>
+                    <option value="">Selecciona el Mensajero</option>
                     <?php
                       foreach($domiciliarys as $key => $values){
                         echo '<option  value="'.$values['id'].'">'.$values['nombre'].'</option>';

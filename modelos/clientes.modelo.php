@@ -6,13 +6,14 @@ class ClienteMdl{
 
   static public function mdlCrearCliente($tabla,$datos){
 
-    $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cliente,nombre,telefono1,telefono2,direccion) VALUES (:cliente,:nombre,:telefono1,:telefono2,:direccion)");
+    $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cliente,nombre,telefono1,telefono2,direccion,tipo) VALUES (:cliente,:nombre,:telefono1,:telefono2,:direccion,:tipo)");
 
     $stmt->bindParam(":cliente",    $datos["cliente"],   PDO::PARAM_STR);
     $stmt->bindParam(":nombre",     $datos["nombre"],    PDO::PARAM_STR);
     $stmt->bindParam(":telefono1",  $datos["telefono1"], PDO::PARAM_STR);
     $stmt->bindParam(":telefono2",  $datos["telefono2"], PDO::PARAM_STR);
     $stmt->bindParam(":direccion",  $datos["direccion"], PDO::PARAM_STR);
+    $stmt->bindParam(":tipo",       $datos["tipo"], PDO::PARAM_STR);
 
     if($stmt->execute()){
 
@@ -129,7 +130,8 @@ class ClienteMdl{
                                                              nombre    = :nombre,
                                                              telefono1 = :telefono1,
                                                              telefono2 = :telefono2,
-                                                             direccion = :direccion 
+                                                             direccion = :direccion,
+                                                             tipo      = :tipo
                                           WHERE id = :id");
 
     $stmt->bindParam(":cliente",    $datos["cliente"],   PDO::PARAM_STR);
@@ -137,6 +139,7 @@ class ClienteMdl{
     $stmt->bindParam(":telefono1",  $datos["telefono1"], PDO::PARAM_STR);
     $stmt->bindParam(":telefono2",  $datos["telefono2"], PDO::PARAM_STR);
     $stmt->bindParam(":direccion",  $datos["direccion"], PDO::PARAM_STR);
+    $stmt->bindParam(":tipo",       $datos["tipo"],      PDO::PARAM_STR);
     $stmt->bindParam(":id",         $datos["id"],        PDO::PARAM_INT);
 
     if($stmt -> execute()){
