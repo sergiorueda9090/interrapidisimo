@@ -7,50 +7,54 @@ $(document).on("click", ".btnShowReportDelivery", function(){
     datos.append("idUsuario", idUsuario);
   
     $.ajax({
-		url:"ajax/reportDelivery.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType: "json",
-		success: function(respuesta){
-            console.log("respuesta ",respuesta);
-            if(respuesta && respuesta.length > 0) {
+        url: "ajax/reportDelivery.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta) {
+            console.log("respuesta ", respuesta);
+            if (respuesta && respuesta.length > 0) {
                 // Si hay información en la respuesta
                 let tabla = $("#infoTable");
                 let total = 0;
                 tabla.empty(); // Limpiamos la tabla antes de agregar nueva información
     
-                respuesta.forEach(function(domicilio) {
-                    console.log("domicilio ",domicilio.nombre)
+                respuesta.forEach(function (domicilio) {
+                    console.log("domicilio ", domicilio.nombre)
                     let fila = "<tr>" +
                         "<td>" + domicilio.nombreCliente + "</td>" +
                         "<td>" + domicilio.cliente + "</td>" +
                         "<td>" + domicilio.nombre + "</td>" +
                         "<td>" + domicilio.newAddress + "</td>" +
                         "<td>" + domicilio.deliveryPraci + "</td>" +
-                        "<td>" + domicilio.dateCrate + "</td>" +
+                        // Corregido para mostrar la fecha
                         "</tr>";
                     tabla.append(fila);
-                    total += parseInt(domicilio.deliveryPraci);
+                    var valor = parseFloat(domicilio.deliveryPraci);
+                    var valorFormateado = valor.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                    total += valor;
+                    
+                    // Reemplazar el valor sin formato con el valor formateado en la tabla
+                    tabla.find('td:last').text(valorFormateado);
                 });
-
                 // Agregar la fila de total
                 let filaTotal = "<tr>" +
-                                    "<td colspan='4' class='text-right'><strong>Total</strong></td>" +
-                                    "<td class='total'>$" + total + "</td>" +
-                                "</tr>";
+                    "<td colspan='4' class='text-right'><strong>Total</strong></td>" +
+                    "<td class='total'>" + total.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + "</td>" + // Formatear el total como dólar
+                    "</tr>";
                 tabla.append(filaTotal);
-
+    
                 // Actualizar el total en el pie de la tabla
-                $("#infoTable tfoot .total").text("$" + total);
+                $("#infoTable tfoot .total").text("$" + total.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
             } else {
                 // Si no hay información en la respuesta
                 console.log("No se encontró información de domicilios.");
             }
-		}
-	});
+        }
+    });
 
     
 });
