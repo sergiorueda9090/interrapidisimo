@@ -91,9 +91,10 @@
         $valor = null;
 
         $deliverys = DeliveryCTR::ctrListDeliverys($item, $valor);
-
+        $totalDeliveryPrice = 0;
        foreach ($deliverys as $key => $value){
-
+                $deliveryPrice = floatval($value["deliveryPraci"]);
+                $totalDeliveryPrice += $deliveryPrice; 
           echo ' <tr>
                   <td>'.($key+1).'</td>
                   <td>'.$value["nombre"].'</td>
@@ -135,7 +136,13 @@
 
 
         ?>
-
+    <tfoot>
+        <tr>
+            <td colspan="10" style="text-align: right;">Total:</td>
+            <td><?php echo $totalDeliveryPrice; ?></td>
+            <td colspan="3"></td> <!-- Colspan para mantener el mismo número de columnas -->
+        </tr>
+    </tfoot>
         </tbody>
 
        </table>
