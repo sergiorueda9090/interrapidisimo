@@ -58,94 +58,81 @@
             $domiciliarys = DeliveryCTR::crtListDomiciliary();        
         ?>
 
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-
-        <thead>
-
-         <tr>
-
-           <th style="width:10px">#</th>
-           <th>Cliente</th>
-           <th>Usuario</th>
-           <th>Telefono</th>
-           <th>Mensajero</th>
-           <th>Tipo</th>
-           <th>Modo de pago</th>
-           <th>Datos de recogida</th>
-           <th>Datos de destino</th>
-           <th>Nota</th>
-           <th>Precio domicilio</th>
-           <th>Proceso de pago</th>
-           <th>Usuario</th>
-           <th>Fecha</th>
-           <th>Acciones</th>
-         </tr>
-
-        </thead>
-
-        <tbody>
-
         <?php
-
         $item = null;
         $valor = null;
-
         $deliverys = DeliveryCTR::ctrListDeliverys($item, $valor);
         $totalDeliveryPrice = 0;
-       foreach ($deliverys as $key => $value){
-                $deliveryPrice = floatval($value["deliveryPraci"]);
-                $totalDeliveryPrice += $deliveryPrice; 
-          echo ' <tr>
-                  <td>'.($key+1).'</td>
-                  <td>'.$value["nombre"].'</td>
-                  <td>'.$value["cunombre"].'</td>';
-                  if(isset($value['cutelefono1'])){
-                    echo'<td>'.$value["cutelefono1"].'</td>';
-                  }else{
-                    echo'<td>'.$value["telefono1"].'</td>';
-                  }
-                  echo '<td>'.$value["nombreDomiciliario"].'</td>
+
+        // Genera la tabla
+        echo '<table id="tablaDeliverys" class="table table-bordered table-striped dt-responsive tablas" width="100%">
+                <thead>
+                    <tr>
+                        <th style="width:10px">#</th>
+                        <th>Cliente</th>
+                        <th>Usuario</th>
+                        <th>Telefono</th>
+                        <th>Mensajero</th>
+                        <th>Tipo</th>
+                        <th>Modo de pago</th>
+                        <th>Datos de recogida</th>
+                        <th>Datos de destino</th>
+                        <th>Nota</th>
+                        <th>Precio domicilio</th>
+                        <th>Proceso de pago</th>
+                        <th>Usuario</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+        foreach ($deliverys as $key => $value) {
+            $deliveryPrice = floatval($value["deliveryPraci"]);
+            $totalDeliveryPrice += $deliveryPrice; 
+            echo '<tr>
+                    <td>'.($key+1).'</td>
+                    <td>'.$value["nombre"].'</td>
+                    <td>'.$value["cunombre"].'</td>';
+            if (isset($value['cutelefono1'])){
+                echo'<td>'.$value["cutelefono1"].'</td>';
+            } else {
+                echo'<td>'.$value["telefono1"].'</td>';
+            }
+            echo '<td>'.$value["nombreDomiciliario"].'</td>
                   <td>'.ucfirst(strtolower($value["type"])).'</td>
                   <td>'.ucfirst(strtolower($value["typeOfPay"])).'</td>
                   <td>'.$value["pickupAddress"].'</td>
                   <td>'.$value["destinationAddress"].'</td>
                   <td>'.$value["note"].'</td>
                   <td>'.$value["deliveryPraci"].'</td>';
-                  if($value["paymentProcess"] == "enproceso"){
-                    echo "<td>En proceso</td>";
-                  }else{
-                    echo '<td>'.$value['paymentProcess'].'</td>';
-                  }
-                  echo '<td>'.$value["userCreate"].'</td>
-                        <td>'.$value["dateCrate"].'</td>'
-                  ;
-          echo '<td>
-
+            if ($value["paymentProcess"] == "enproceso") {
+                echo "<td>En proceso</td>";
+            } else {
+                echo '<td>'.$value['paymentProcess'].'</td>';
+            }
+            echo '<td>'.$value["userCreate"].'</td>
+                  <td>'.$value["dateCrate"].'</td>
+                  <td>
                     <div class="btn-group">
-
                       <button class="btn btn-warning btnEditarDelivery" iddelivery="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarDelivery"><i class="fa fa-pencil"></i></button>
-
                       <button class="btn btn-danger btnEliminarDelivery" iddelivery="'.$value["id"].'"><i class="fa fa-times"></i></button>
-
                     </div>
-
                   </td>
-
                 </tr>';
         }
 
+        echo '</tbody></table>';
 
+        // Inserta el total de deliveryPrice utilizando JavaScript al final del archivo
+        echo '<script>
+            var totalDeliveryPrice = ' . $totalDeliveryPrice . ';
+            $(document).ready(function() {
+                // Inserta el footer después de que la página se haya cargado completamente
+                $("#tablaDeliverys").append(\'<tfoot><tr><td colspan="10" style="text-align: right;">Total:</td><td>\' + totalDeliveryPrice.toFixed(2) + \'</td><td colspan="3"></td></tr></tfoot>\');
+            });
+        </script>';
         ?>
-    <tfoot>
-        <tr>
-            <td colspan="10" style="text-align: right;">Total:</td>
-            <td><?php echo $totalDeliveryPrice; ?></td>
-            <td colspan="3"></td> <!-- Colspan para mantener el mismo número de columnas -->
-        </tr>
-    </tfoot>
-        </tbody>
-
-       </table>
 
       </div>
 
