@@ -1,189 +1,189 @@
 <aside class="main-sidebar">
 
-	 <section class="sidebar">
+    <section class="sidebar">
 
-		<ul class="sidebar-menu">
+        <ul class="sidebar-menu">
 
-			<!--<li class="active">
+            <!--<li class="active">
 
-				<a href="inicio">
+                <a href="inicio">
 
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
+                    <i class="fa fa-home"></i>
+                    <span>Inicio</span>
 
-				</a>
+                </a>
 
-			</li>-->
+            </li>-->
 
-			<li class="active">
+            <li class="active">
 
-			<a href="usuarios" style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/user-interface.png" alt="" style="width: 100%; height: auto;">
-				<span>Usuarios</span>
-			</a>
+                <a href="usuarios" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+                    <img src="vistas/img/iconos/user-interface.png" alt="" style="width: 24px; max-width: 24px; height: auto;">
+                    <span>Usuarios</span>
+                </a>
 
-			</li>
+            </li>
 
-			<li>
+            <li>
 
-				<a href="clientes" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/customer-journey.png" alt="" style="width: 100%; height: auto;">
-					<span>Clientes</span>
+                <a href="clientes" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+                    <img src="vistas/img/iconos/customer-journey.png" alt="" style="width: 24px; max-width: 24px; height: auto;">
+                    <span>Clientes</span>
 
-				</a>
+                </a>
 
-			</li>
+            </li>
 
-			<li>
+            <li>
 
-				<a href="delivery" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/domis.png" alt="" style="width: 100%; height: auto;">
-					<span>Delivery</span>
-				</a>
+                <a href="delivery" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+                    <img src="vistas/img/iconos/domis.png" alt="" style="width: 24px; max-width: 24px; height: auto;">
+                    <span>Delivery</span>
+                </a>
 
-			</li>
+            </li>
 
 
-			<li>
+            <li>
 
-				<a href="reportes" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/reporte.png" alt="" style="width: 100%; height: auto;">
-					<span>Reportes</span>
-				</a>
+                <a href="reportes" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+                    <img src="vistas/img/iconos/reporte.png" alt="" style="width: 24px; max-width: 24px; height: auto;">
+                    <span>Reportes</span>
+                </a>
 
-			</li>
+            </li>
 
-			<li>
+            <li>
 
-				<a href="telegram" Style="display: flex; align-items: center; justify-content: center; width: 90%;">
-				<img src="vistas/img/iconos/telegram.png" alt="" style="width: 100%; height: auto;">
-					<span>Telegram</span>
-				</a>
+                <a href="telegram" style="display: flex; align-items: center; justify-content: center; width: 90%;">
+                    <img src="vistas/img/iconos/telegram.png" alt="" style="width: 24px; max-width: 24px; height: auto;">
+                    <span>Telegram</span>
+                </a>
 
-			</li>
+            </li>
 
-			<!--<li>
+            <!--<li>
 
-				<a href="zona">
-					<i class="fa fa-map-marker" aria-hidden="true"></i>
-					<span>Agregar Zona</span>
+                <a href="zona">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>Agregar Zona</span>
 
-				</a>
+                </a>
 
-			</li>
+            </li>
 
-			<li>
+            <li>
 
-				<a href="asignarDomicilio">
+                <a href="asignarDomicilio">
 
-					<i class="fa fa-motorcycle"></i>
-					<span>Asignar Domiciliario</span>
+                    <i class="fa fa-motorcycle"></i>
+                    <span>Asignar Domiciliario</span>
 
-				</a>
+                </a>
 
-			</li>
+            </li>
 
-			<li>
+            <li>
 
-				<a href="domicilio">
+                <a href="domicilio">
 
-					<i class="fa fa-motorcycle" aria-hidden="true"></i>
-					<span>Agregar Domicilio</span>
+                    <i class="fa fa-motorcycle" aria-hidden="true"></i>
+                    <span>Agregar Domicilio</span>
 
-				</a>
+                </a>
 
-			</li>-->
+            </li>-->
 
-			<!--<li>
+            <!--<li>
 
-				<a href="categorias">
+                <a href="categorias">
 
-					<i class="fa fa-th"></i>
-					<span>Categorias</span>
+                    <i class="fa fa-th"></i>
+                    <span>Categorias</span>
 
-				</a>
+                </a>
 
-			</li>-->
+            </li>-->
 
-		<!--	<li>
+            <!--    <li>
 
-				<a href="productos">
+                    <a href="productos">
 
-					<i class="fa fa-product-hunt"></i>
-					<span>Productos</span>
+                        <i class="fa fa-product-hunt"></i>
+                        <span>Productos</span>
 
-				</a>
+                    </a>
 
-			</li>
+                </li>
 
-			<li>
+                <li>
 
-				<a href="gastos">
+                    <a href="gastos">
 
-					<i class="fa fa-shopping-basket"></i>
-					<span>Gastos</span>
+                        <i class="fa fa-shopping-basket"></i>
+                        <span>Gastos</span>
 
-				</a>
+                    </a>
 
-			</li>
+                </li>
 
-			<li class="treeview">
+                <li class="treeview">
 
-				<a href="#">
+                    <a href="#">
 
-					<i class="fa fa-list-ul"></i>
+                        <i class="fa fa-list-ul"></i>
 
-					<span>Ventas</span>
+                        <span>Ventas</span>
 
-					<span class="pull-right-container">
+                        <span class="pull-right-container">
 
-						<i class="fa fa-angle-left pull-right"></i>
+                            <i class="fa fa-angle-left pull-right"></i>
 
-					</span>
+                        </span>
 
-				</a>
+                    </a>
 
-				<ul class="treeview-menu">
+                    <ul class="treeview-menu">
 
-					<li>
+                        <li>
 
-						<a href="ventas">
+                            <a href="ventas">
 
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
+                                <i class="fa fa-circle-o"></i>
+                                <span>Administrar ventas</span>
 
-						</a>
+                            </a>
 
-					</li>
+                        </li>
 
-					<li>
+                        <li>
 
-						<a href="crear-venta">
+                            <a href="crear-venta">
 
-							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
+                                <i class="fa fa-circle-o"></i>
+                                <span>Crear venta</span>
 
-						</a>
+                            </a>
 
-					</li>
+                        </li>
 
-					<li>
+                        <li>
 
-						<a href="reportes">
+                            <a href="reportes">
 
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
+                                <i class="fa fa-circle-o"></i>
+                                <span>Reporte de ventas</span>
 
-						</a>
+                            </a>
 
-					</li>-->
+                        </li>-->
 
-				</ul>
+            <!--</ul>-->
 
-			</li>
+            <!--</li>-->
 
-		</ul>
+        </ul>
 
-	 </section>
+    </section>
 
 </aside>

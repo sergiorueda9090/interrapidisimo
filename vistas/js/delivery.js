@@ -377,6 +377,28 @@ $(document).on("click", ".btnEliminarDelivery", function(){
   })
 
 
+  $(document).on("change",".tipo",function(){
+    let tipo = $(".tipo").val();
+    if(tipo === "CONTADO"){
+      $(".selectPayMethod").css({"display":"block"});
+      $(".tipoPagar").val(tipo);
+    }else{
+      $(".tipoPagar").val(tipo);
+      $(".selectPayMethod").css({"display":"none"}) ;
+    }
+  }); 
+
+  $(document).on("change",".tipoEditar",function(){
+    let tipo = $(".tipoEditar").val();
+    if(tipo === "CONTADO"){
+      $(".selectPayMethodEditar").css({"display":"block"});
+      $(".tipoPagarEditar").val(tipo);
+    }else{
+      $(".tipoPagarEditar").val(tipo);
+      $(".selectPayMethodEditar").css({"display":"none"}) ;
+    }
+  }); 
+
   $(document).on("change",".tipoPagar",function(){
 
     let tipoPagar = $(".tipoPagar").val();
