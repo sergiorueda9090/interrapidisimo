@@ -84,6 +84,7 @@ $(document).on('click','.filterReport',function(){
     if (cliente !== '') {
         datos.append("cliente", cliente);
     }
+
     $.ajax({
 		url:"ajax/reportDelivery.ajax.php",
 		method: "POST",
@@ -128,7 +129,31 @@ $(document).on('click','.filterReport',function(){
 
 })
 
+document.getElementById("btnDescargarExcel").addEventListener("click", function() {
+    // Obtener los valores de los parámetros
+    let fechaInicio = $(".fechaInicio").val();
+    let fechaFin = $(".fechaFin").val();
+    let mensajero = $(".mensajero").val();
+    let cliente = $(".cliente").val();
 
-$(document).on('click', '.downloadPageExcel', function() {
-    window.location.href = 'reportes/export_excel.php';
+    // Construir la URL base para el archivo PHP
+    let baseUrl = "vistas/modulos/reportes/descargar-reporte.php";
+
+    // Verificar y agregar los parámetros GET necesarios
+    let url = baseUrl;
+    if (fechaInicio !== '') {
+        url += "?fechaInicio=" + encodeURIComponent(fechaInicio);
+    }
+    if (fechaFin !== '') {
+        url += (url.includes("?") ? "&" : "?") + "fechaFin=" + encodeURIComponent(fechaFin);
+    }
+    if (mensajero !== '') {
+        url += (url.includes("?") ? "&" : "?") + "mensajero=" + encodeURIComponent(mensajero);
+    }
+    if (cliente !== '') {
+        url += (url.includes("?") ? "&" : "?") + "cliente=" + encodeURIComponent(cliente);
+    }
+
+    // Ejecutar la URL
+    window.location.href = url;
 });

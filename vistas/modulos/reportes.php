@@ -102,10 +102,14 @@
           </button>            
           <button type="button" class="btn btn-danger btn-sm downloadPage">              
             <i class="fa fa-refresh" aria-hidden="true"></i>          
-          </button>       
-          <button type="button" class="btn btn-success btn-sm downloadPageExcel">              
-          <i class="fa fa-file-excel-o" aria-hidden="true"></i>       
+          </button> 
+
+          <a href="vistas/modulos/reportes/descargar-reporte.php">EXCEL</a>
+
+          <button type="button" class="btn btn-success btn-sm downloadPageExcel" id="btnDescargarExcel">              
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i>       
           </button>        
+        
         </div>       
        </div>   
        </div>        

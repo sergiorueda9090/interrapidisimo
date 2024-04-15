@@ -74,9 +74,13 @@ class RportDeliveryMdl{
               d.dateCrate,d.note,d.type
               FROM delviery AS d 
               INNER JOIN usuarios u ON u.id = d.idDomiciliary
-              INNER JOIN clientes c ON c.id = d.idCustomer
-              WHERE ";
+              INNER JOIN clientes c ON c.id = d.idCustomer";
 
+      if($fecha_inicio == null &&  $fecha_fin == null && $cliente == null && $mensajero == null) {
+
+      }else{
+        $sql .= " WHERE ";
+      }
       // Construir la condición de fecha si $fecha_inicio no es NULL
       if ($fecha_inicio !== null) {
           $fecha_inicio .= " 00:00:00";
